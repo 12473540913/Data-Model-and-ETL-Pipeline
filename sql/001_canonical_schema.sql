@@ -1,0 +1,5 @@
+-- SQLAlchemy models are executable source of truth for the starter.
+-- Lineage: source_system -> dataset_release -> ingestion_run -> raw_object
+-- Science: variant -> association <- trait; association -> study/population
+-- Crosswalks: variant_alias, trait_synonym, variant_gene, association_source
+-- Quality: quality_issue

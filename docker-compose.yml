@@ -1,0 +1,11 @@
+services:
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: genomics
+      POSTGRES_USER: genomics
+      POSTGRES_PASSWORD: genomics
+    ports: ["5432:5432"]
+    volumes: ["genomics_pgdata:/var/lib/postgresql/data"]
+volumes:
+  genomics_pgdata:
