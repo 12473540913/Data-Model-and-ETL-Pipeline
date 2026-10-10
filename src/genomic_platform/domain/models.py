@@ -53,6 +53,10 @@ class IngestionRun(Base):
     finished_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
     status: Mapped[str] = mapped_column(String(30), default="running")
     metrics_json: Mapped[dict] = mapped_column(JSONB, default=dict)
+    metadata_json: Mapped[dict] = mapped_column(JSONB, default=dict, server_default="{}")
+    originating_run_id: Mapped[UUID | None] = mapped_column(
+        ForeignKey("ingestion_run.id", name="fk_ingestion_run_origin"), index=True
+    )
     __table_args__ = (
         UniqueConstraint("id", "source_system_id", name="uq_ingestion_run_source"),
         CheckConstraint(
@@ -89,6 +93,9 @@ class RawObject(Base):
     p_value_exponent: Mapped[str | None] = mapped_column(Text)
     __table_args__ = (
         UniqueConstraint("id", "ingestion_run_id", name="uq_raw_object_run"),
+        UniqueConstraint(
+            "id", "ingestion_run_id", "source_record_id", name="uq_raw_object_source_run"
+        ),
         UniqueConstraint(
             "id",
             "ingestion_run_id",
@@ -251,11 +258,10 @@ class AssociationSource(Base):
             "source_system_id", "source_record_id", name="uq_association_source_record"
         ),
         ForeignKeyConstraint(
-            ["raw_object_id", "ingestion_run_id", "association_id", "source_record_id"],
+            ["raw_object_id", "ingestion_run_id", "source_record_id"],
             [
                 "raw_object.id",
                 "raw_object.ingestion_run_id",
-                "raw_object.association_id",
                 "raw_object.source_record_id",
             ],
             name="fk_association_source_raw_run",
@@ -280,6 +286,7 @@ class QualityIssue(Base):
     message: Mapped[str] = mapped_column(Text)
     details_json: Mapped[dict] = mapped_column(JSONB, default=dict)
     raw_object_id: Mapped[UUID | None] = mapped_column(PGUUID(as_uuid=True), index=True)
+    processing_observation_id: Mapped[UUID | None] = mapped_column(PGUUID(as_uuid=True))
     __table_args__ = (
         ForeignKeyConstraint(
             ["raw_object_id", "ingestion_run_id"],
@@ -288,4 +295,51 @@ class QualityIssue(Base):
         ),
         UniqueConstraint("raw_object_id", "rule_code", name="uq_quality_issue_raw_rule"),
         CheckConstraint("severity IN ('warning', 'error')", name="ck_quality_issue_severity"),
+        ForeignKeyConstraint(
+            ["processing_observation_id", "ingestion_run_id"],
+            ["processing_observation.id", "processing_observation.ingestion_run_id"],
+            name="fk_quality_issue_processing_run",
+        ),
+        UniqueConstraint(
+            "processing_observation_id", "rule_code", name="uq_quality_issue_processing_rule"
+        ),
+    )
+
+
+class ProcessingObservation(Base):
+    __tablename__ = "processing_observation"
+    id: Mapped[UUID] = mapped_column(PGUUID(as_uuid=True), primary_key=True, default=uuid4)
+    ingestion_run_id: Mapped[UUID] = mapped_column(ForeignKey("ingestion_run.id"), index=True)
+    raw_object_id: Mapped[UUID] = mapped_column(ForeignKey("raw_object.id"), index=True)
+    association_id: Mapped[UUID | None] = mapped_column(ForeignKey("association.id"))
+    disposition: Mapped[str] = mapped_column(String(30))
+    normalized_json: Mapped[dict] = mapped_column(JSONB)
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), default=lambda: datetime.now(UTC)
+    )
+    __table_args__ = (
+        UniqueConstraint("ingestion_run_id", "raw_object_id", name="uq_processing_run_raw"),
+        UniqueConstraint("id", "ingestion_run_id", name="uq_processing_id_run"),
+        CheckConstraint(
+            "disposition IN ('loaded', 'partial', 'quarantined')", name="ck_processing_disposition"
+        ),
+    )
+
+
+class IngestionBatch(Base):
+    __tablename__ = "ingestion_batch"
+    id: Mapped[UUID] = mapped_column(PGUUID(as_uuid=True), primary_key=True, default=uuid4)
+    ingestion_run_id: Mapped[UUID] = mapped_column(ForeignKey("ingestion_run.id"), index=True)
+    sequence: Mapped[int] = mapped_column(BigInteger)
+    phase: Mapped[str] = mapped_column(String(30))
+    status: Mapped[str] = mapped_column(String(30))
+    metrics_json: Mapped[dict] = mapped_column(JSONB)
+    checkpoint_json: Mapped[dict] = mapped_column(JSONB)
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), default=lambda: datetime.now(UTC)
+    )
+    __table_args__ = (
+        UniqueConstraint("ingestion_run_id", "sequence", name="uq_ingestion_batch_sequence"),
+        CheckConstraint("phase IN ('capture', 'processing')", name="ck_ingestion_batch_phase"),
+        CheckConstraint("status IN ('completed', 'failed')", name="ck_ingestion_batch_status"),
     )

@@ -80,10 +80,53 @@ For an empty database, run `python -m alembic upgrade head`. Existing starter
 databases must be verified against revision `0001` before `alembic stamp 0001`
 and upgrade; do not blindly stamp an unknown schema.
 
-Checkpoint 2 provides a transactional Python loading service, raw/run lineage,
-persisted quality findings, and database quarantine. It does not yet wire the
-source-discovery CLI into loading or implement replay. See
+Checkpoint 2 provides the whole-dataset atomic loading service. Checkpoint 3
+adds bounded CLI acquisition, processing, replay, and resumable runs. See
 [the persistence policy](docs/data-model.md#postgresql-persistence-checkpoint-2).
+
+### GWAS ingestion and replay
+
+Apply migrations first with `python -m genomic_platform.cli init-db`. Commands
+use `DATABASE_URL` from the environment or local `.env`; database credentials
+are never CLI arguments or displayed in ingestion failures.
+
+```powershell
+# Live acquisition: returned associations retain their individual traits.
+& .\.venv\Scripts\python.exe -m genomic_platform.cli ingest-gwas-trait EFO_0010507 --batch-size 500
+& .\.venv\Scripts\python.exe -m genomic_platform.cli ingest-gwas-variant rs4988235 --page-size 100 --timeout 30
+
+# Saved JSON: no network needed.
+& .\.venv\Scripts\python.exe -m genomic_platform.cli ingest-gwas-file .\case-studies\rs4988235-associations.json --batch-size 500
+
+# Substitute UUIDs from the JSON run summaries.
+& .\.venv\Scripts\python.exe -m genomic_platform.cli replay-gwas <original-run-uuid> --batch-size 500
+& .\.venv\Scripts\python.exe -m genomic_platform.cli resume-gwas <failed-or-interrupted-run-uuid>
+```
+
+Every command prints JSON with run/origin identifiers, status, captured/processed,
+loaded/partial/quarantined, pending, failed-batch records, failure history, and
+capture completion. Quarantine or unresolved science produces
+`completed_with_issues`, not an execution failure. HTTP, checksum, malformed-source,
+and database failures exit nonzero and never report a successful run.
+
+Acquisition commits raw payloads in bounded batches before normalization begins.
+Processing then commits atomic batches (default 500, configurable 1-10000).
+Earlier committed batches survive later failures; the failed batch rolls back.
+`resume-gwas` retries only missing processing observations, using persisted
+run/raw identities. It does not create another run or duplicate lineage.
+
+If live acquisition is incomplete, resumption repeats the query from the start
+and checksum-deduplicates captured payloads. Stored page/request checkpoints are
+audit evidence, not a promise that mutable upstream pages form a stable snapshot.
+Different payload versions for the same source ID are quarantined, not silently
+selected. Saved-file resumption requires the same file checksum. After capture
+completes, resumption needs neither the file nor the source API.
+
+Replay verifies stored checksums and creates a new linked processing run, **not
+new raw source observations**. It preserves original payloads, findings, source
+links, and quarantine; scientific reconciliation policies are unchanged. See
+[bounded ingestion details](docs/data-model.md#bounded-ingestion-and-replay-checkpoint-3)
+for recovery and provenance semantics.
 
 ### Reproducible PostgreSQL integration tests (PowerShell)
 
@@ -120,6 +163,7 @@ src/genomic_platform/
   repositories/     database access
   quality/          validation / DQ rules
   orchestration/    optional scheduler assets
+migrations/
 sql/
 docs/
 tests/

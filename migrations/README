@@ -4,6 +4,8 @@ supplied through Alembic Config.attributes["connection"] for isolated tests.
 0001 freezes the original 16-table ORM schema.
 0002 adds exact numerics, stable observation keys, lineage constraints, and
 database-backed raw/normalized snapshots and quarantine dispositions.
+0003 separates acquisition from replay processing, adds bounded batch history,
+and records request metadata and originating run references.
 
 Run python -m alembic upgrade head from the repository root.
 Do not use create_all for managed databases. Existing starter databases must be

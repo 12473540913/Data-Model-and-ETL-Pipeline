@@ -16,7 +16,9 @@ def test_association_discovery_filters_and_preserves_paginated_records():
 
         async def fake_get(path, params=None):
             calls.append((path, params))
-            return type("Response", (), {"json": lambda self: pages.pop(0)})()
+            return type(
+                "Response", (), {"json": lambda self, **kwargs: pages.pop(0), "status_code": 200}
+            )()
 
         connector.http.get = fake_get
         iterator = getattr(connector, method_name)(identifier, page_size=17)
@@ -28,13 +30,17 @@ def test_association_discovery_filters_and_preserves_paginated_records():
             ("/associations?page=2", None),
         ]
 
-    asyncio.run(run_discovery(
-        "iter_associations_for_trait",
-        "EFO_0000001",
-        {"efo_trait": "EFO_0000001", "show_child_traits": "true"},
-    ))
-    asyncio.run(run_discovery(
-        "iter_associations_for_variant",
-        "rs123",
-        {"rs_id": "rs123"},
-    ))
+    asyncio.run(
+        run_discovery(
+            "iter_associations_for_trait",
+            "EFO_0000001",
+            {"efo_trait": "EFO_0000001", "show_child_traits": "true"},
+        )
+    )
+    asyncio.run(
+        run_discovery(
+            "iter_associations_for_variant",
+            "rs123",
+            {"rs_id": "rs123"},
+        )
+    )

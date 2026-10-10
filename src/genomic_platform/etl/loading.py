@@ -207,7 +207,14 @@ def _findings(dto: AssociationDTO) -> list[QualityFinding]:
     return findings
 
 
-def _persist_findings(session: Session, raw: RawObject, findings: list[QualityFinding]) -> None:
+def _persist_findings(
+    session: Session,
+    raw: RawObject,
+    findings: list[QualityFinding],
+    *,
+    processing_id: UUID | None = None,
+    run_id: UUID | None = None,
+) -> None:
     grouped: dict[str, list[QualityFinding]] = defaultdict(list)
     for finding in findings:
         grouped[finding.code].append(finding)
@@ -216,8 +223,9 @@ def _persist_findings(session: Session, raw: RawObject, findings: list[QualityFi
         session.add(
             QualityIssue(
                 id=uuid4(),
-                ingestion_run_id=raw.ingestion_run_id,
-                raw_object_id=raw.id,
+                ingestion_run_id=run_id or raw.ingestion_run_id,
+                raw_object_id=raw.id if processing_id is None else None,
+                processing_observation_id=processing_id,
                 entity_type="association",
                 entity_key=raw.source_record_id,
                 rule_code=code,
@@ -369,6 +377,77 @@ def _canonical(session: Session, dto: AssociationDTO, source_id: UUID) -> UUID:
     )
 
 
+def process_association(
+    session: Session,
+    run: IngestionRun,
+    raw: RawObject,
+    dto: AssociationDTO,
+    *,
+    preserve_raw: bool = False,
+    policy_findings: list[QualityFinding] | None = None,
+) -> tuple[UUID | None, str, list[QualityFinding]]:
+    """Shared scientific loading policy; replay never mutates acquisition evidence."""
+    findings = _findings(dto) + _entity_findings(session, dto) + (policy_findings or [])
+    if preserve_raw and raw.disposition == "quarantined":
+        findings.append(
+            QualityFinding(
+                "ASSOC_HISTORICAL_QUARANTINE",
+                "error",
+                "Original observation was quarantined; replay is not scientific reconciliation.",
+            )
+        )
+    existing = (
+        session.scalar(
+            select(AssociationSource).where(
+                AssociationSource.source_system_id == run.source_system_id,
+                AssociationSource.source_record_id == dto.source_record_id,
+            )
+        )
+        if dto.source_record_id
+        else None
+    )
+    if existing is not None:
+        origin = session.get(RawObject, existing.raw_object_id)
+        if origin is None or origin.sha256 != raw.sha256:
+            findings.append(
+                QualityFinding(
+                    "ASSOC_SOURCE_RECORD_CHANGED",
+                    "error",
+                    "Source ID already has different evidence; existing association left unchanged.",
+                )
+            )
+    blocking = [f for f in findings if f.severity == "error" and f.code not in _PARTIAL_ERRORS]
+    if blocking:
+        return None, "quarantined", findings
+    association_id = (
+        existing.association_id
+        if existing is not None
+        else _canonical(session, dto, run.source_system_id)
+    )
+    disposition = (
+        "partial"
+        if any(f.severity == "error" or f.code == "ASSOC_FLOAT_PVALUE" for f in findings)
+        else "loaded"
+    )
+    if not preserve_raw:
+        raw.association_id = association_id
+        raw.disposition = disposition
+        session.flush()
+    if existing is None:
+        session.add(
+            AssociationSource(
+                association_id=association_id,
+                source_system_id=run.source_system_id,
+                source_record_id=dto.source_record_id,
+                ingestion_run_id=raw.ingestion_run_id,
+                raw_object_id=raw.id,
+                source_payload={"payload_text": raw.payload_text, "sha256": raw.sha256},
+            )
+        )
+        session.flush()
+    return association_id, disposition, findings
+
+
 def _load_run(
     session: Session, run: IngestionRun, associations: Iterable[AssociationDTO]
 ) -> dict[str, int]:
@@ -412,53 +491,8 @@ def _load_run(
             raw.source_record_id = None
         session.add(raw)
         session.flush()
-        findings = _findings(dto) + _entity_findings(session, dto)
-        existing = (
-            session.scalar(
-                select(AssociationSource).where(
-                    AssociationSource.source_system_id == run.source_system_id,
-                    AssociationSource.source_record_id == dto.source_record_id,
-                )
-            )
-            if dto.source_record_id
-            else None
-        )
-        if existing is not None:
-            origin = session.get(RawObject, existing.raw_object_id)
-            if origin is None or origin.sha256 != digest:
-                findings.append(
-                    QualityFinding(
-                        "ASSOC_SOURCE_RECORD_CHANGED",
-                        "error",
-                        "Source ID already has different evidence; existing association left unchanged.",
-                    )
-                )
-        blocking = [f for f in findings if f.severity == "error" and f.code not in _PARTIAL_ERRORS]
-        if blocking:
-            raw.disposition = "quarantined"
-            metrics["quarantined"] += 1
-        else:
-            association_id = (
-                existing.association_id
-                if existing is not None
-                else _canonical(session, dto, run.source_system_id)
-            )
-            raw.association_id = association_id
-            partial = any(f.severity == "error" or f.code == "ASSOC_FLOAT_PVALUE" for f in findings)
-            raw.disposition = "partial" if partial else "loaded"
-            metrics["partial" if partial else "loaded"] += 1
-            session.flush()
-            if existing is None:
-                session.add(
-                    AssociationSource(
-                        association_id=association_id,
-                        source_system_id=run.source_system_id,
-                        source_record_id=dto.source_record_id,
-                        ingestion_run_id=run.id,
-                        raw_object_id=raw.id,
-                        source_payload={"payload_text": payload, "sha256": digest},
-                    )
-                )
+        _, raw.disposition, findings = process_association(session, run, raw, dto)
+        metrics[raw.disposition] += 1
         _persist_findings(session, raw, findings)
         session.flush()
     return dict(metrics)
@@ -519,7 +553,11 @@ def load_gwas_associations(
             run.finished_at = datetime.now(UTC)
             run.metrics_json = metrics
     except Exception as error:
-        logger.exception("GWAS ingestion %s failed; dataset transaction rolled back.", run_id)
+        logger.error(
+            "GWAS ingestion %s failed (%s); dataset transaction rolled back.",
+            run_id,
+            type(error).__name__,
+        )
         with Session(engine) as session, session.begin():
             run = session.get(IngestionRun, run_id)
             if run is None:

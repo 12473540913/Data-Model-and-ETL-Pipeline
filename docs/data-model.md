@@ -133,3 +133,88 @@ produce 2 runs, 136 raw observations, and 44 issues.
 
 Enrichment, complete public API contracts, and end-to-end protocol verification
 remain future checkpoints. Persistence integration tests are not API completion.
+
+## Bounded ingestion and replay (checkpoint 3)
+
+Revision `0003` adds `processing_observation`, `ingestion_batch`, ingestion request
+metadata and an originating-run foreign key. The schema now has 18 ORM tables.
+The original `load_gwas_associations` default remains whole-dataset atomic and
+its original rollback/rerun tests remain applicable. The CLI uses its extracted
+`process_association` policy; it does not introduce a second reconciliation policy.
+
+### Transaction and recovery boundaries
+
+1. Create an audited run and validate PostgreSQL/schema before contacting GWAS.
+2. Capture exact semantic JSON and SHA-256 in atomic bounded transactions.
+   Live metadata contains the filter, page request, timeout configuration, response
+   checksum when available, and acquisition timestamp. File metadata includes its
+   whole-file checksum. Capture progress and batch counts commit together.
+3. Mark capture complete only after all pages or the valid closing JSON array
+   have been read. A malformed tail/page leaves capture incomplete, retains prior
+   raw capture batches, and does not publish partial scientific processing.
+4. Process at most `batch_size` raw objects per transaction. Each transaction
+   commits canonical records, source links, processing observations, quality
+   findings, batch checkpoint IDs, and progress together. Any exception rolls back
+   that processing batch only. Failure audit uses a separate transaction.
+
+Session advisory locks prevent concurrent execution of the same run. The existing
+source advisory lock serializes canonical writes across runs. A hard process kill
+can leave status `running`; after its connection lock is released, `resume-gwas`
+can recover it. The same run UUID is retained and attempt count increases.
+Completed runs return their existing summary without writing duplicate records.
+
+Capture resume re-reads the entire unchanged file or live query and deduplicates
+within that run on source payload checksum. There is no unsafe page-number skip:
+GWAS responses can change between requests. A changed file is rejected; distinct
+payloads for one source ID are all quarantined rather than picking a version by
+processing order. Source consistency is not a frozen-release guarantee; truly
+reproducible acquisition requires a versioned upstream release.
+
+Processing resume selects raw IDs without a committed `(run_id, raw_object_id)`
+processing observation, so progress is transactional rather than a potentially
+stale offset. The loader does not hold a dataset-wide DTO list or a database
+transaction open across network calls. Files stream as arrays; HTTP memory is
+bounded by one page plus the capture batch. A single exceptionally large record
+still requires that record's memory. No distributed framework is introduced.
+
+Failures include committed and pending counts, failed batch size when known,
+failure history, and `status='failed'`. Unknown/unfetched source records are not
+invented as a numeric failed-record count. A failed-batch count remains historical
+after successful resumption; current `failed` and `pending` return to zero.
+If PostgreSQL is unavailable even for the audit update, the error includes the
+run ID for recovery and never claims success.
+
+### Original observation versus processing
+
+`raw_object` remains the acquisition identity, payload text, checksum, request
+metadata, source record ID, and acquisition-run UUID. Its first processing
+snapshot is populated once after capture. Replay never updates those fields or
+manufactures another raw object.
+
+`processing_observation` is one immutable processing result for a run/raw pair.
+It stores the current normalized snapshot, disposition, and association link.
+Replay processing runs reference their originating run; replay-of-replay selects
+the raw IDs referenced by that run. A creation-time cutoff freezes the selected
+observations even if an incomplete originating run is later resumed. The original source-run linkage remains on
+`association_source`, even when a previously unprocessed captured observation is
+first loaded during replay.
+
+The source/raw composite foreign key now verifies raw ID, acquisition run and
+source record ID without requiring the original raw's first-processing association
+field to change during replay. Canonical association IDs remain independently
+foreign-key constrained. Processing quality issues reference their processing
+observation/run; legacy atomic-loader quality issues retain their raw/run keys.
+
+Checksums are verified before normalization. A mismatch fails the batch/run,
+not a scientific quarantine that would conceal damaged evidence. Historical
+quarantine remains quarantine even under replay; the nine conflicting p-values
+remain null/unreconciled in curated associations, with exact candidate values and
+source representations retained. HTTP retries are bounded to four attempts for
+transport failures, 429, and 5xx; permanent 4xx fails immediately. Unexpected
+JSON shapes, duplicate keys, non-finite tokens and invalid/repeated/external next
+links fail explicitly rather than returning an empty successful result.
+
+The PostgreSQL integration suite covers 1,201-record processing, paginated capture
+commits, retries, partial failures, safe resumption, unchanged raw/checksum history,
+legacy-loader replay, and replay-of-replay. Real live-source availability is not
+assumed by mocked-HTTP tests. Ensembl and public API expansion remain deferred.

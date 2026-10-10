@@ -374,8 +374,8 @@ def test_migrations_round_trip_and_metadata_parity(postgres_engine):
         assert columns["p_value"]["type"].scale == 40
         upgrade_database(connection)
         assert compare_metadata(MigrationContext.configure(connection), Base.metadata) == []
-        assert connection.scalar(text("SELECT version_num FROM alembic_version")) == "0002"
-        assert len(Base.metadata.tables) == 16
+        assert connection.scalar(text("SELECT version_num FROM alembic_version")) == "0003"
+        assert len(Base.metadata.tables) == 18
 
 
 def test_downgrade_refuses_to_discard_evidence(postgres_engine, gwas_saved_records):
@@ -389,7 +389,7 @@ def test_downgrade_refuses_to_discard_evidence(postgres_engine, gwas_saved_recor
         command.downgrade(config, "0001")
     with Session(postgres_engine) as session:
         assert count(session, Association) == count(session, RawObject) == 1
-        assert session.scalar(text("SELECT version_num FROM alembic_version")) == "0002"
+        assert session.scalar(text("SELECT version_num FROM alembic_version")) == "0003"
 
 
 def test_database_write_failure_rolls_back_whole_dataset(postgres_engine, gwas_saved_records):
