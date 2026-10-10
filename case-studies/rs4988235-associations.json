@@ -1,0 +1,3614 @@
+[
+  {
+    "association_id": 226328569,
+    "risk_frequency": "0.3565",
+    "pvalue_description": "",
+    "pvalue_mantissa": 1,
+    "pvalue_exponent": -65,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.045-0.057]",
+    "beta": "0.05121 unit decrease",
+    "p_value": 1e-65,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0004338",
+        "efo_trait": "body weight"
+      }
+    ],
+    "reported_trait": [
+      "Weight (minimum, inv-normal transformed)"
+    ],
+    "accession_id": "GCST90476466",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "39024449",
+    "first_author": "Verma A",
+    "ci_lower": 0.045,
+    "ci_upper": 0.057,
+    "snp_effect_allele": [
+      "rs4988235-G"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "G"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226328569"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226328569/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 226325310,
+    "risk_frequency": "0.3565",
+    "pvalue_description": "",
+    "pvalue_mantissa": 1,
+    "pvalue_exponent": -82,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.053-0.066]",
+    "beta": "0.05955 unit decrease",
+    "p_value": 1e-82,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0004338",
+        "efo_trait": "body weight"
+      }
+    ],
+    "reported_trait": [
+      "Weight (mean, inv-normal transformed)"
+    ],
+    "accession_id": "GCST90476463",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "39024449",
+    "first_author": "Verma A",
+    "ci_lower": 0.053,
+    "ci_upper": 0.066,
+    "snp_effect_allele": [
+      "rs4988235-G"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "G"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226325310"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226325310/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 226321179,
+    "risk_frequency": "0.3565",
+    "pvalue_description": "",
+    "pvalue_mantissa": 4,
+    "pvalue_exponent": -85,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.055-0.067]",
+    "beta": "0.06095 unit decrease",
+    "p_value": 4e-85,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0004338",
+        "efo_trait": "body weight"
+      }
+    ],
+    "reported_trait": [
+      "Weight (maximum, inv-normal transformed)"
+    ],
+    "accession_id": "GCST90476460",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "39024449",
+    "first_author": "Verma A",
+    "ci_lower": 0.055,
+    "ci_upper": 0.067,
+    "snp_effect_allele": [
+      "rs4988235-G"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "G"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226321179"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226321179/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 226317887,
+    "risk_frequency": "0.502",
+    "pvalue_description": "",
+    "pvalue_mantissa": 5,
+    "pvalue_exponent": -33,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.038-0.052]",
+    "beta": "0.04503 unit decrease",
+    "p_value": 5e-33,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0004338",
+        "efo_trait": "body weight"
+      }
+    ],
+    "reported_trait": [
+      "Weight (minimum, inv-normal transformed)"
+    ],
+    "accession_id": "GCST90480728",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "39024449",
+    "first_author": "Verma A",
+    "ci_lower": 0.038,
+    "ci_upper": 0.052,
+    "snp_effect_allele": [
+      "rs4988235-G"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "G"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226317887"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226317887/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 226314008,
+    "risk_frequency": "0.502",
+    "pvalue_description": "",
+    "pvalue_mantissa": 9,
+    "pvalue_exponent": -35,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.041-0.057]",
+    "beta": "0.04902 unit decrease",
+    "p_value": 9e-35,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0004338",
+        "efo_trait": "body weight"
+      }
+    ],
+    "reported_trait": [
+      "Weight (mean, inv-normal transformed)"
+    ],
+    "accession_id": "GCST90480727",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "39024449",
+    "first_author": "Verma A",
+    "ci_lower": 0.041,
+    "ci_upper": 0.057,
+    "snp_effect_allele": [
+      "rs4988235-G"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "G"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226314008"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226314008/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 226309601,
+    "risk_frequency": "0.502",
+    "pvalue_description": "",
+    "pvalue_mantissa": 2,
+    "pvalue_exponent": -33,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.041-0.056]",
+    "beta": "0.04857 unit decrease",
+    "p_value": 2e-33,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0004338",
+        "efo_trait": "body weight"
+      }
+    ],
+    "reported_trait": [
+      "Weight (maximum, inv-normal transformed)"
+    ],
+    "accession_id": "GCST90480726",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "39024449",
+    "first_author": "Verma A",
+    "ci_lower": 0.041,
+    "ci_upper": 0.056,
+    "snp_effect_allele": [
+      "rs4988235-G"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "G"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226309601"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226309601/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 226240991,
+    "risk_frequency": "0.3575",
+    "pvalue_description": "",
+    "pvalue_mantissa": 1,
+    "pvalue_exponent": -12,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.019-0.038]",
+    "beta": "0.02864 unit decrease",
+    "p_value": 1e-12,
+    "efo_traits": [
+      {
+        "efo_id": "MONDO_0011122",
+        "efo_trait": "obesity disorder"
+      }
+    ],
+    "reported_trait": [
+      "Obesity (PheCode 278.1)"
+    ],
+    "accession_id": "GCST90475762",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "39024449",
+    "first_author": "Verma A",
+    "ci_lower": 0.019,
+    "ci_upper": 0.038,
+    "snp_effect_allele": [
+      "rs4988235-G"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "G"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226240991"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226240991/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 226153591,
+    "risk_frequency": "0.5021",
+    "pvalue_description": "",
+    "pvalue_mantissa": 7,
+    "pvalue_exponent": -13,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.019-0.034]",
+    "beta": "0.02667 unit increase",
+    "p_value": 7e-13,
+    "efo_traits": [
+      {
+        "efo_id": "OBA_0003460",
+        "efo_trait": "erythrocyte volume"
+      }
+    ],
+    "reported_trait": [
+      "mean corpuscular volume (MCV, mean, inv-norm transformed)"
+    ],
+    "accession_id": "GCST90479676",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "39024449",
+    "first_author": "Verma A",
+    "ci_lower": 0.019,
+    "ci_upper": 0.034,
+    "snp_effect_allele": [
+      "rs4988235-G"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "G"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226153591"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226153591/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 226147420,
+    "risk_frequency": "0.502",
+    "pvalue_description": "",
+    "pvalue_mantissa": 1,
+    "pvalue_exponent": -26,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.032-0.046]",
+    "beta": "0.03905 unit decrease",
+    "p_value": 1e-26,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0004340",
+        "efo_trait": "body mass index"
+      }
+    ],
+    "reported_trait": [
+      "Body mass index (BMI, minimum, inv-normal transformed)"
+    ],
+    "accession_id": "GCST90479523",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "39024449",
+    "first_author": "Verma A",
+    "ci_lower": 0.032,
+    "ci_upper": 0.046,
+    "snp_effect_allele": [
+      "rs4988235-G"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "G"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226147420"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226147420/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 226143097,
+    "risk_frequency": "0.502",
+    "pvalue_description": "",
+    "pvalue_mantissa": 1,
+    "pvalue_exponent": -28,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.036-0.051]",
+    "beta": "0.04345 unit decrease",
+    "p_value": 1e-28,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0004340",
+        "efo_trait": "body mass index"
+      }
+    ],
+    "reported_trait": [
+      "Body mass index (BMI, mean, inv-normal transformed)"
+    ],
+    "accession_id": "GCST90479522",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "39024449",
+    "first_author": "Verma A",
+    "ci_lower": 0.036,
+    "ci_upper": 0.051,
+    "snp_effect_allele": [
+      "rs4988235-G"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "G"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226143097"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226143097/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 226136790,
+    "risk_frequency": "0.502",
+    "pvalue_description": "",
+    "pvalue_mantissa": 8,
+    "pvalue_exponent": -27,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.035-0.05]",
+    "beta": "0.04262 unit decrease",
+    "p_value": 8e-27,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0004340",
+        "efo_trait": "body mass index"
+      }
+    ],
+    "reported_trait": [
+      "Body mass index (BMI, maximum, inv-normal transformed)"
+    ],
+    "accession_id": "GCST90479521",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "39024449",
+    "first_author": "Verma A",
+    "ci_lower": 0.035,
+    "ci_upper": 0.05,
+    "snp_effect_allele": [
+      "rs4988235-G"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "G"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226136790"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226136790/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 226128050,
+    "risk_frequency": "0.4655",
+    "pvalue_description": "",
+    "pvalue_mantissa": 2,
+    "pvalue_exponent": -25,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.036-0.052]",
+    "beta": "0.04416 unit decrease",
+    "p_value": 2e-25,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0004338",
+        "efo_trait": "body weight"
+      }
+    ],
+    "reported_trait": [
+      "What is your weight? (pounds, inv-normal transformed)"
+    ],
+    "accession_id": "GCST90480729",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "39024449",
+    "first_author": "Verma A",
+    "ci_lower": 0.036,
+    "ci_upper": 0.052,
+    "snp_effect_allele": [
+      "rs4988235-G"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "G"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226128050"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226128050/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 226099675,
+    "risk_frequency": "0.5028",
+    "pvalue_description": "",
+    "pvalue_mantissa": 8,
+    "pvalue_exponent": -22,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.022-0.033]",
+    "beta": "0.0273 unit decrease",
+    "p_value": 8e-22,
+    "efo_traits": [
+      {
+        "efo_id": "OBA_2050062",
+        "efo_trait": "serum alanine aminotransferase amount"
+      }
+    ],
+    "reported_trait": [
+      "Alanine transaminase (ALT, minimum, inv-norm transformed)"
+    ],
+    "accession_id": "GCST90479508",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "39024449",
+    "first_author": "Verma A",
+    "ci_lower": 0.022,
+    "ci_upper": 0.033,
+    "snp_effect_allele": [
+      "rs4988235-G"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "G"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226099675"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226099675/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 226062697,
+    "risk_frequency": "0.3564",
+    "pvalue_description": "",
+    "pvalue_mantissa": 3,
+    "pvalue_exponent": -23,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.021-0.032]",
+    "beta": "0.02637 unit decrease",
+    "p_value": 3e-23,
+    "efo_traits": [
+      {
+        "efo_id": "OBA_VT0005265",
+        "efo_trait": "blood urea nitrogen amount"
+      }
+    ],
+    "reported_trait": [
+      "Blood urea nitrogen (BUN, minimum, inv-norm transformed)"
+    ],
+    "accession_id": "GCST90475168",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "39024449",
+    "first_author": "Verma A",
+    "ci_lower": 0.021,
+    "ci_upper": 0.032,
+    "snp_effect_allele": [
+      "rs4988235-G"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "G"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226062697"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226062697/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 226060042,
+    "risk_frequency": "0.3564",
+    "pvalue_description": "",
+    "pvalue_mantissa": 7,
+    "pvalue_exponent": -24,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.021-0.031]",
+    "beta": "0.02587 unit decrease",
+    "p_value": 7e-24,
+    "efo_traits": [
+      {
+        "efo_id": "OBA_VT0005265",
+        "efo_trait": "blood urea nitrogen amount"
+      }
+    ],
+    "reported_trait": [
+      "Blood urea nitrogen (BUN, mean, inv-norm transformed)"
+    ],
+    "accession_id": "GCST90475165",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "39024449",
+    "first_author": "Verma A",
+    "ci_lower": 0.021,
+    "ci_upper": 0.031,
+    "snp_effect_allele": [
+      "rs4988235-G"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "G"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226060042"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226060042/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 226053464,
+    "risk_frequency": "0.3565",
+    "pvalue_description": "",
+    "pvalue_mantissa": 2,
+    "pvalue_exponent": -43,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.036-0.048]",
+    "beta": "0.04179 unit decrease",
+    "p_value": 2e-43,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0004340",
+        "efo_trait": "body mass index"
+      }
+    ],
+    "reported_trait": [
+      "Body mass index (BMI, minimum, inv-normal transformed)"
+    ],
+    "accession_id": "GCST90475159",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "39024449",
+    "first_author": "Verma A",
+    "ci_lower": 0.036,
+    "ci_upper": 0.048,
+    "snp_effect_allele": [
+      "rs4988235-G"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "G"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226053464"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226053464/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 226042251,
+    "risk_frequency": "0.8796",
+    "pvalue_description": "",
+    "pvalue_mantissa": 6,
+    "pvalue_exponent": -12,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.039-0.069]",
+    "beta": "0.0539 unit decrease",
+    "p_value": 6e-12,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0004340",
+        "efo_trait": "body mass index"
+      }
+    ],
+    "reported_trait": [
+      "Body mass index (BMI, minimum, inv-normal transformed)"
+    ],
+    "accession_id": "GCST90475158",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "39024449",
+    "first_author": "Verma A",
+    "ci_lower": 0.039,
+    "ci_upper": 0.069,
+    "snp_effect_allele": [
+      "rs4988235-G"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "G"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226042251"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226042251/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 226039293,
+    "risk_frequency": "0.3565",
+    "pvalue_description": "",
+    "pvalue_mantissa": 8,
+    "pvalue_exponent": -57,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.044-0.056]",
+    "beta": "0.04986 unit decrease",
+    "p_value": 8e-57,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0004340",
+        "efo_trait": "body mass index"
+      }
+    ],
+    "reported_trait": [
+      "Body mass index (BMI, mean, inv-normal transformed)"
+    ],
+    "accession_id": "GCST90475156",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "39024449",
+    "first_author": "Verma A",
+    "ci_lower": 0.044,
+    "ci_upper": 0.056,
+    "snp_effect_allele": [
+      "rs4988235-G"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "G"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226039293"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226039293/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 226038417,
+    "risk_frequency": "0.3565",
+    "pvalue_description": "",
+    "pvalue_mantissa": 1,
+    "pvalue_exponent": -16,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.017-0.027]",
+    "beta": "0.02214 unit decrease",
+    "p_value": 1e-16,
+    "efo_traits": [
+      {
+        "efo_id": "OBA_2050062",
+        "efo_trait": "serum alanine aminotransferase amount"
+      }
+    ],
+    "reported_trait": [
+      "Alanine transaminase (ALT, minimum, inv-norm transformed)"
+    ],
+    "accession_id": "GCST90475115",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "39024449",
+    "first_author": "Verma A",
+    "ci_lower": 0.017,
+    "ci_upper": 0.027,
+    "snp_effect_allele": [
+      "rs4988235-G"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "G"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226038417"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226038417/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 226034972,
+    "risk_frequency": "0.8795",
+    "pvalue_description": "",
+    "pvalue_mantissa": 1,
+    "pvalue_exponent": -11,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.034-0.062]",
+    "beta": "0.04783 unit decrease",
+    "p_value": 1e-11,
+    "efo_traits": [
+      {
+        "efo_id": "OBA_2050062",
+        "efo_trait": "serum alanine aminotransferase amount"
+      }
+    ],
+    "reported_trait": [
+      "Alanine transaminase (ALT, minimum, inv-norm transformed)"
+    ],
+    "accession_id": "GCST90475114",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "39024449",
+    "first_author": "Verma A",
+    "ci_lower": 0.034,
+    "ci_upper": 0.062,
+    "snp_effect_allele": [
+      "rs4988235-G"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "G"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226034972"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226034972/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 226027494,
+    "risk_frequency": "0.3592",
+    "pvalue_description": "",
+    "pvalue_mantissa": 1,
+    "pvalue_exponent": -44,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.041-0.055]",
+    "beta": "0.04814 unit decrease",
+    "p_value": 1e-44,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0004338",
+        "efo_trait": "body weight"
+      }
+    ],
+    "reported_trait": [
+      "What is your weight? (pounds, inv-normal transformed)"
+    ],
+    "accession_id": "GCST90476469",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "39024449",
+    "first_author": "Verma A",
+    "ci_lower": 0.041,
+    "ci_upper": 0.055,
+    "snp_effect_allele": [
+      "rs4988235-G"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "G"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226027494"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226027494/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 226008034,
+    "risk_frequency": "0.3565",
+    "pvalue_description": "",
+    "pvalue_mantissa": 2,
+    "pvalue_exponent": -59,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.045-0.058]",
+    "beta": "0.05158 unit decrease",
+    "p_value": 2e-59,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0004340",
+        "efo_trait": "body mass index"
+      }
+    ],
+    "reported_trait": [
+      "Body mass index (BMI, maximum, inv-normal transformed)"
+    ],
+    "accession_id": "GCST90475153",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "39024449",
+    "first_author": "Verma A",
+    "ci_lower": 0.045,
+    "ci_upper": 0.058,
+    "snp_effect_allele": [
+      "rs4988235-G"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "G"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226008034"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/226008034/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 225987953,
+    "risk_frequency": "0.3566",
+    "pvalue_description": "",
+    "pvalue_mantissa": 2,
+    "pvalue_exponent": -13,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.015-0.026]",
+    "beta": "0.0203 unit increase",
+    "p_value": 2e-13,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0004611",
+        "efo_trait": "low density lipoprotein cholesterol measurement"
+      }
+    ],
+    "reported_trait": [
+      "low density lipoprotein cholesterol (LDLC, maximum, inv-norm transformed)"
+    ],
+    "accession_id": "GCST90475412",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "39024449",
+    "first_author": "Verma A",
+    "ci_lower": 0.015,
+    "ci_upper": 0.026,
+    "snp_effect_allele": [
+      "rs4988235-G"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "G"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/225987953"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/225987953/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 216708045,
+    "risk_frequency": "0.7189",
+    "pvalue_description": "",
+    "pvalue_mantissa": 4,
+    "pvalue_exponent": -8,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.045-0.095]",
+    "beta": "0.07 unit decrease",
+    "p_value": 4e-08,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0007874",
+        "efo_trait": "gut microbiome measurement"
+      }
+    ],
+    "reported_trait": [
+      "Gut microbiome function abundance (Xylose degradation, MF0021)"
+    ],
+    "accession_id": "GCST90671843",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "41688638",
+    "first_author": "Dekkers KF",
+    "ci_lower": 0.045,
+    "ci_upper": 0.095,
+    "snp_effect_allele": [
+      "rs4988235-A"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "A"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/216708045"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/216708045/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 216705693,
+    "risk_frequency": "0.719",
+    "pvalue_description": "",
+    "pvalue_mantissa": 1,
+    "pvalue_exponent": -11,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.057-0.103]",
+    "beta": "0.0797 unit increase",
+    "p_value": 1e-11,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0007874",
+        "efo_trait": "gut microbiome measurement"
+      }
+    ],
+    "reported_trait": [
+      "Gut microbiome genus abundance (Phocea)"
+    ],
+    "accession_id": "GCST90671563",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "41688638",
+    "first_author": "Dekkers KF",
+    "ci_lower": 0.057,
+    "ci_upper": 0.103,
+    "snp_effect_allele": [
+      "rs4988235-A"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "A"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/216705693"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/216705693/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 216700680,
+    "risk_frequency": "0.72",
+    "pvalue_description": "",
+    "pvalue_mantissa": 1,
+    "pvalue_exponent": -11,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.06-0.1]",
+    "beta": "0.08 unit increase",
+    "p_value": 1e-11,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0007874",
+        "efo_trait": "gut microbiome measurement"
+      }
+    ],
+    "reported_trait": [
+      "Gut microbiome species abundance (Phocea massiliensis, GCF_900104615.1)"
+    ],
+    "accession_id": "GCST90671012",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "41688638",
+    "first_author": "Dekkers KF",
+    "ci_lower": 0.06,
+    "ci_upper": 0.1,
+    "snp_effect_allele": [
+      "rs4988235-A"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "A"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/216700680"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/216700680/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 216644960,
+    "risk_frequency": "0.56",
+    "pvalue_description": "",
+    "pvalue_mantissa": 3,
+    "pvalue_exponent": -13,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.14-0.25]",
+    "beta": "0.194 unit decrease",
+    "p_value": 3.0000000000000003e-13,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0004725",
+        "efo_trait": "metabolite measurement"
+      }
+    ],
+    "reported_trait": [
+      "Urine X-23331 levels in chronic kidney disease"
+    ],
+    "accession_id": "GCST90266581",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [
+      {
+        "efo_id": "MONDO_0005300",
+        "efo_trait": "chronic kidney disease"
+      }
+    ],
+    "pubmed_id": "37277652",
+    "first_author": "Schlosser P",
+    "ci_lower": 0.14,
+    "ci_upper": 0.25,
+    "snp_effect_allele": [
+      "rs4988235-A"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "A"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/216644960"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/216644960/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 216634095,
+    "risk_frequency": "0.57",
+    "pvalue_description": "",
+    "pvalue_mantissa": 4,
+    "pvalue_exponent": -34,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.2-0.28]",
+    "beta": "0.244 unit decrease",
+    "p_value": 4e-34,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0010507",
+        "efo_trait": "lactose measurement"
+      }
+    ],
+    "reported_trait": [
+      "Urine lactose levels in chronic kidney disease"
+    ],
+    "accession_id": "GCST90265429",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [
+      {
+        "efo_id": "MONDO_0005300",
+        "efo_trait": "chronic kidney disease"
+      }
+    ],
+    "pubmed_id": "37277652",
+    "first_author": "Schlosser P",
+    "ci_lower": 0.2,
+    "ci_upper": 0.28,
+    "snp_effect_allele": [
+      "rs4988235-A"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "A"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/216634095"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/216634095/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 216616798,
+    "risk_frequency": "0.73",
+    "pvalue_description": "",
+    "pvalue_mantissa": 6,
+    "pvalue_exponent": -35,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.11-0.15]",
+    "beta": "0.13 unit decrease",
+    "p_value": 6e-35,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0007874",
+        "efo_trait": "gut microbiome measurement"
+      }
+    ],
+    "reported_trait": [
+      "Gut microbial functional pathway relative abundance (KEGG-module M00443: SenX3-RegX3 (phosphate starvation response) two-component regulatory system)"
+    ],
+    "accession_id": "GCST90667379",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "41688637",
+    "first_author": "Moksnes MR",
+    "ci_lower": 0.11,
+    "ci_upper": 0.15,
+    "snp_effect_allele": [
+      "rs4988235-A"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "A"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/216616798"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/216616798/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 216615582,
+    "risk_frequency": "0.73",
+    "pvalue_description": "",
+    "pvalue_mantissa": 3,
+    "pvalue_exponent": -37,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.11-0.15]",
+    "beta": "0.13 unit decrease",
+    "p_value": 3e-37,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0007874",
+        "efo_trait": "gut microbiome measurement"
+      }
+    ],
+    "reported_trait": [
+      "Gut microbial functional pathway relative abundance (KEGG-module M00233: Glutamate transport system)"
+    ],
+    "accession_id": "GCST90667245",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "41688637",
+    "first_author": "Moksnes MR",
+    "ci_lower": 0.11,
+    "ci_upper": 0.15,
+    "snp_effect_allele": [
+      "rs4988235-A"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "A"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/216615582"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/216615582/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 215607540,
+    "risk_frequency": "NR",
+    "pvalue_description": "",
+    "pvalue_mantissa": 9,
+    "pvalue_exponent": -11,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.02-0.02]",
+    "beta": "0.02 mmol/L increase",
+    "p_value": 9e-11,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0022316",
+        "efo_trait": "triglycerides in chylomicrons and extremely large VLDL measurement"
+      }
+    ],
+    "reported_trait": [
+      "Triglyceride levels in chylomicrons and extremely large VLDL"
+    ],
+    "accession_id": "GCST90501340",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "41044249",
+    "first_author": "Zoodsma M",
+    "ci_lower": 0.02,
+    "ci_upper": 0.02,
+    "snp_effect_allele": [
+      "rs4988235-A"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "A"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/215607540"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/215607540/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 215453455,
+    "risk_frequency": "NR",
+    "pvalue_description": "",
+    "pvalue_mantissa": 4,
+    "pvalue_exponent": -19,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.02-0.02]",
+    "beta": "0.02 mmol/L decrease",
+    "p_value": 4e-19,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0010112",
+        "efo_trait": "acetate measurement"
+      }
+    ],
+    "reported_trait": [
+      "Acetate levels"
+    ],
+    "accession_id": "GCST90501093",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "41044249",
+    "first_author": "Zoodsma M",
+    "ci_lower": 0.02,
+    "ci_upper": 0.02,
+    "snp_effect_allele": [
+      "rs4988235-A"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "A"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/215453455"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/215453455/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 191172854,
+    "risk_frequency": "NR",
+    "pvalue_description": "",
+    "pvalue_mantissa": 7,
+    "pvalue_exponent": -16,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.1-0.17]",
+    "beta": "0.1345 unit increase",
+    "p_value": 6.999999999999999e-16,
+    "efo_traits": [
+      {
+        "efo_id": "OBA_2055802",
+        "efo_trait": "level of pentadecanoic acid in blood"
+      }
+    ],
+    "reported_trait": [
+      "Pentadecanoic acid levels (241.2171_0.376)"
+    ],
+    "accession_id": "GCST90461881",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "39644095",
+    "first_author": "Downie CG",
+    "ci_lower": 0.1,
+    "ci_upper": 0.17,
+    "snp_effect_allele": [
+      "rs4988235-?"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "?"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/191172854"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/191172854/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 189899195,
+    "risk_frequency": "NR",
+    "pvalue_description": "",
+    "pvalue_mantissa": 8,
+    "pvalue_exponent": -12,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "-",
+    "beta": "-",
+    "p_value": 8e-12,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0007761",
+        "efo_trait": "docosahexaenoic acid measurement"
+      }
+    ],
+    "reported_trait": [
+      "Docosahexaenoic acid levels"
+    ],
+    "accession_id": "GCST90501984",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "40545721",
+    "first_author": "Sun Y",
+    "snp_effect_allele": [
+      "rs4988235-G"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "G"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/189899195"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/189899195/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 133849239,
+    "risk_frequency": "0.6031",
+    "pvalue_description": "",
+    "pvalue_mantissa": 1,
+    "pvalue_exponent": -11,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.026-0.047]",
+    "beta": "0.0366 unit decrease",
+    "p_value": 1e-11,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0010112",
+        "efo_trait": "acetate measurement"
+      }
+    ],
+    "reported_trait": [
+      "Acetate levels"
+    ],
+    "accession_id": "GCST90301941",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "38448586",
+    "first_author": "Karjalainen MK",
+    "ci_lower": 0.026,
+    "ci_upper": 0.047,
+    "snp_effect_allele": [
+      "rs4988235-A"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "A"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/133849239"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/133849239/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 119897371,
+    "risk_frequency": "0.646606",
+    "pvalue_description": "",
+    "pvalue_mantissa": 7,
+    "pvalue_exponent": -16,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.095-0.156]",
+    "beta": "0.125118 unit increase",
+    "p_value": 6.999999999999999e-16,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0008009",
+        "efo_trait": "1,5 anhydroglucitol measurement"
+      }
+    ],
+    "reported_trait": [
+      "1,5-anhydroglucitol (1,5-ag) levels"
+    ],
+    "accession_id": "GCST90199648",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "36635386",
+    "first_author": "Chen Y",
+    "ci_lower": 0.095,
+    "ci_upper": 0.156,
+    "snp_effect_allele": [
+      "rs4988235-A"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "A"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/119897371"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/119897371/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 119776845,
+    "risk_frequency": "0.7004",
+    "pvalue_description": "",
+    "pvalue_mantissa": 3,
+    "pvalue_exponent": -19,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.083-0.129]",
+    "beta": "0.10583447 unit decrease",
+    "p_value": 3e-19,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0800829",
+        "efo_trait": "X-21821 measurement"
+      }
+    ],
+    "reported_trait": [
+      "X-21821 levels"
+    ],
+    "accession_id": "GCST90245697",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "36357675",
+    "first_author": "Surendran P",
+    "ci_lower": 0.083,
+    "ci_upper": 0.129,
+    "snp_effect_allele": [
+      "rs4988235-A"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "A"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/119776845"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/119776845/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 119775451,
+    "risk_frequency": "0.7013",
+    "pvalue_description": "",
+    "pvalue_mantissa": 6,
+    "pvalue_exponent": -20,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.083-0.129]",
+    "beta": "0.10595466 unit decrease",
+    "p_value": 5.999999999999999e-20,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0800774",
+        "efo_trait": "X-17351 measurement"
+      }
+    ],
+    "reported_trait": [
+      "X-17351 levels"
+    ],
+    "accession_id": "GCST90245631",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "36357675",
+    "first_author": "Surendran P",
+    "ci_lower": 0.083,
+    "ci_upper": 0.129,
+    "snp_effect_allele": [
+      "rs4988235-A"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "A"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/119775451"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/119775451/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 119756133,
+    "risk_frequency": "0.703",
+    "pvalue_description": "",
+    "pvalue_mantissa": 3,
+    "pvalue_exponent": -72,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.18-0.22]",
+    "beta": "0.19764455 unit increase",
+    "p_value": 3e-72,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0008009",
+        "efo_trait": "1,5 anhydroglucitol measurement"
+      }
+    ],
+    "reported_trait": [
+      "1,5-anhydroglucitol (1,5-ag) levels"
+    ],
+    "accession_id": "GCST90244876",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "36357675",
+    "first_author": "Surendran P",
+    "ci_lower": 0.18,
+    "ci_upper": 0.22,
+    "snp_effect_allele": [
+      "rs4988235-A"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "A"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/119756133"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/119756133/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 104545791,
+    "risk_frequency": "0.69",
+    "pvalue_description": "",
+    "pvalue_mantissa": 3,
+    "pvalue_exponent": -1451,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.86-0.9]",
+    "beta": "0.882 unit increase",
+    "p_value": 0.0,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0801753",
+        "efo_trait": "lactase-phlorizin hydrolase measurement"
+      }
+    ],
+    "reported_trait": [
+      "Lactase-phlorizin hydrolase levels"
+    ],
+    "accession_id": "GCST90248315",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "34648354",
+    "first_author": "Pietzner M",
+    "ci_lower": 0.86,
+    "ci_upper": 0.9,
+    "snp_effect_allele": [
+      "rs4988235-A"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "A"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/104545791"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/104545791/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 104165314,
+    "risk_frequency": "NR",
+    "pvalue_description": "",
+    "pvalue_mantissa": 9,
+    "pvalue_exponent": -10,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.0056-0.0108]",
+    "beta": "0.00822 unit decrease",
+    "p_value": 9e-10,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0803367",
+        "efo_trait": "antihyperlipidemic drug use measurement"
+      }
+    ],
+    "reported_trait": [
+      "Medication use for hyperlipidemia (number of purchases)"
+    ],
+    "accession_id": "GCST90250902",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "36653479",
+    "first_author": "Kiiskinen T",
+    "ci_lower": 0.0056,
+    "ci_upper": 0.0108,
+    "snp_effect_allele": [
+      "rs4988235-?"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "?"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/104165314"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/104165314/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 102518478,
+    "risk_frequency": "0.711",
+    "pvalue_description": "",
+    "pvalue_mantissa": 2,
+    "pvalue_exponent": -222,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.74-0.82]",
+    "beta": "0.78 unit increase",
+    "p_value": 2e-222,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0801753",
+        "efo_trait": "lactase-phlorizin hydrolase measurement"
+      }
+    ],
+    "reported_trait": [
+      "Lactase-phlorizin hydrolase levels (LCT.9017.58.3)"
+    ],
+    "accession_id": "GCST90241728",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "29875488",
+    "first_author": "Sun BB",
+    "ci_lower": 0.74,
+    "ci_upper": 0.82,
+    "snp_effect_allele": [
+      "rs4988235-A"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "A"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/102518478"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/102518478/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 101965176,
+    "risk_frequency": "NR",
+    "pvalue_description": "",
+    "pvalue_mantissa": 8,
+    "pvalue_exponent": -13,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.0093-0.0164]",
+    "beta": "0.012867 unit increase",
+    "p_value": 8e-13,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0004340",
+        "efo_trait": "body mass index"
+      }
+    ],
+    "reported_trait": [
+      "Body mass index (MTAG)"
+    ],
+    "accession_id": "GCST90179150",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "36376304",
+    "first_author": "Koskeridis F",
+    "ci_lower": 0.0093,
+    "ci_upper": 0.0164,
+    "snp_effect_allele": [
+      "rs4988235-A"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "A"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/101965176"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/101965176/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 101170003,
+    "risk_frequency": "NR",
+    "pvalue_description": "",
+    "pvalue_mantissa": 2,
+    "pvalue_exponent": -13,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "-",
+    "beta": "0.14 unit decrease",
+    "p_value": 2e-13,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0021261",
+        "efo_trait": "X-11795 measurement"
+      }
+    ],
+    "reported_trait": [
+      "X-11795 levels"
+    ],
+    "accession_id": "GCST90140369",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "35347128",
+    "first_author": "Yin X",
+    "snp_effect_allele": [
+      "rs4988235-A"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "A"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/101170003"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/101170003/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 101159048,
+    "risk_frequency": "NR",
+    "pvalue_description": "",
+    "pvalue_mantissa": 5,
+    "pvalue_exponent": -44,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "-",
+    "beta": "0.27 unit increase",
+    "p_value": 4.999999999999999e-44,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0008009",
+        "efo_trait": "1,5 anhydroglucitol measurement"
+      }
+    ],
+    "reported_trait": [
+      "1,5-anhydroglucitol (1,5-ag) levels"
+    ],
+    "accession_id": "GCST90139611",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "35347128",
+    "first_author": "Yin X",
+    "snp_effect_allele": [
+      "rs4988235-A"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "A"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/101159048"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/101159048/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 101156033,
+    "risk_frequency": "NR",
+    "pvalue_description": "",
+    "pvalue_mantissa": 2,
+    "pvalue_exponent": -13,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "-",
+    "beta": "0.14 unit decrease",
+    "p_value": 2e-13,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0021016",
+        "efo_trait": "indolepropionate measurement"
+      }
+    ],
+    "reported_trait": [
+      "Indolepropionate levels"
+    ],
+    "accession_id": "GCST90139419",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "35347128",
+    "first_author": "Yin X",
+    "snp_effect_allele": [
+      "rs4988235-A"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "A"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/101156033"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/101156033/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 98379013,
+    "risk_frequency": "0.7425",
+    "pvalue_description": "",
+    "pvalue_mantissa": 1,
+    "pvalue_exponent": -9,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.017-0.033]",
+    "beta": "0.02464 unit decrease",
+    "p_value": 1e-09,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0010155",
+        "efo_trait": "taste liking measurement"
+      }
+    ],
+    "reported_trait": [
+      "Broad bean liking"
+    ],
+    "accession_id": "GCST90094711",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "35585065",
+    "first_author": "May-Wilson S",
+    "ci_lower": 0.017,
+    "ci_upper": 0.033,
+    "snp_effect_allele": [
+      "rs4988235-A"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "A"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/98379013"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/98379013/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 96219964,
+    "risk_frequency": "0.264157",
+    "pvalue_description": "",
+    "pvalue_mantissa": 6,
+    "pvalue_exponent": -10,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.02-0.038]",
+    "beta": "0.0290161 unit increase",
+    "p_value": 6e-10,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0010112",
+        "efo_trait": "acetate measurement"
+      }
+    ],
+    "reported_trait": [
+      "Acetate levels"
+    ],
+    "accession_id": "GCST90092803",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "35213538",
+    "first_author": "Richardson TG",
+    "ci_lower": 0.02,
+    "ci_upper": 0.038,
+    "snp_effect_allele": [
+      "rs4988235-G"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "G"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/96219964"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/96219964/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 96197418,
+    "risk_frequency": "0.264183",
+    "pvalue_description": "",
+    "pvalue_mantissa": 1,
+    "pvalue_exponent": -10,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.02-0.037]",
+    "beta": "0.0284728 unit increase",
+    "p_value": 1e-10,
+    "efo_traits": [
+      {
+        "efo_id": "OBA_VT0010046",
+        "efo_trait": "fatty acid amount"
+      }
+    ],
+    "reported_trait": [
+      "Degree of unsaturation"
+    ],
+    "accession_id": "GCST90092994",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "35213538",
+    "first_author": "Richardson TG",
+    "ci_lower": 0.02,
+    "ci_upper": 0.037,
+    "snp_effect_allele": [
+      "rs4988235-G"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "G"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/96197418"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/96197418/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 96180970,
+    "risk_frequency": "0.264175",
+    "pvalue_description": "",
+    "pvalue_mantissa": 2,
+    "pvalue_exponent": -8,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.016-0.033]",
+    "beta": "0.0248042 unit increase",
+    "p_value": 2e-08,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0020945",
+        "efo_trait": "Free cholesterol:total lipids ratio"
+      },
+      {
+        "efo_id": "EFO_0004612",
+        "efo_trait": "high density lipoprotein cholesterol measurement"
+      }
+    ],
+    "reported_trait": [
+      "Free cholesterol to total lipids ratio in small HDL"
+    ],
+    "accession_id": "GCST90092949",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "35213538",
+    "first_author": "Richardson TG",
+    "ci_lower": 0.016,
+    "ci_upper": 0.033,
+    "snp_effect_allele": [
+      "rs4988235-G"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "G"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/96180970"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/96180970/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 96164910,
+    "risk_frequency": "0.264175",
+    "pvalue_description": "",
+    "pvalue_mantissa": 1,
+    "pvalue_exponent": -9,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.018-0.036]",
+    "beta": "0.0269591 unit decrease",
+    "p_value": 1e-09,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0020946",
+        "efo_trait": "Phospholipids:total lipids ratio"
+      },
+      {
+        "efo_id": "EFO_0004612",
+        "efo_trait": "high density lipoprotein cholesterol measurement"
+      }
+    ],
+    "reported_trait": [
+      "Phospholipids to total lipids ratio in medium HDL"
+    ],
+    "accession_id": "GCST90092901",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "35213538",
+    "first_author": "Richardson TG",
+    "ci_lower": 0.018,
+    "ci_upper": 0.036,
+    "snp_effect_allele": [
+      "rs4988235-G"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "G"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/96164910"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/96164910/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 94879703,
+    "risk_frequency": "0.414723",
+    "pvalue_description": "",
+    "pvalue_mantissa": 1,
+    "pvalue_exponent": -10,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.066-0.124]",
+    "beta": "0.0947 unit decrease",
+    "p_value": 1e-10,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0007874",
+        "efo_trait": "gut microbiome measurement"
+      }
+    ],
+    "reported_trait": [
+      "Turicibacter sp001543345 abundance in stool"
+    ],
+    "accession_id": "GCST90032588",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "35115689",
+    "first_author": "Qin Y",
+    "ci_lower": 0.066,
+    "ci_upper": 0.124,
+    "snp_effect_allele": [
+      "rs4988235-G"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "G"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/94879703"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/94879703/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 94877787,
+    "risk_frequency": "0.414723",
+    "pvalue_description": "",
+    "pvalue_mantissa": 9,
+    "pvalue_exponent": -9,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.043-0.088]",
+    "beta": "0.0652691 unit increase",
+    "p_value": 9.000000000000001e-09,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0007874",
+        "efo_trait": "gut microbiome measurement"
+      }
+    ],
+    "reported_trait": [
+      "Lactobacillus B abundance in stool"
+    ],
+    "accession_id": "GCST90032456",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "35115689",
+    "first_author": "Qin Y",
+    "ci_lower": 0.043,
+    "ci_upper": 0.088,
+    "snp_effect_allele": [
+      "rs4988235-G"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "G"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/94877787"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/94877787/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 94877745,
+    "risk_frequency": "0.414723",
+    "pvalue_description": "",
+    "pvalue_mantissa": 3,
+    "pvalue_exponent": -10,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.056-0.107]",
+    "beta": "0.0818721 unit increase",
+    "p_value": 3e-10,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0007874",
+        "efo_trait": "gut microbiome measurement"
+      }
+    ],
+    "reported_trait": [
+      "Lactobacillus B ruminis abundance in stool"
+    ],
+    "accession_id": "GCST90032454",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "35115689",
+    "first_author": "Qin Y",
+    "ci_lower": 0.056,
+    "ci_upper": 0.107,
+    "snp_effect_allele": [
+      "rs4988235-G"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "G"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/94877745"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/94877745/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 94874878,
+    "risk_frequency": "0.414723",
+    "pvalue_description": "",
+    "pvalue_mantissa": 2,
+    "pvalue_exponent": -8,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.014-0.028]",
+    "beta": "0.0209247 unit decrease",
+    "p_value": 2e-08,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0007874",
+        "efo_trait": "gut microbiome measurement"
+      }
+    ],
+    "reported_trait": [
+      "Brevibacillales abundance in stool"
+    ],
+    "accession_id": "GCST90032246",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "35115689",
+    "first_author": "Qin Y",
+    "ci_lower": 0.014,
+    "ci_upper": 0.028,
+    "snp_effect_allele": [
+      "rs4988235-G"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "G"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/94874878"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/94874878/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 94874855,
+    "risk_frequency": "0.414723",
+    "pvalue_description": "",
+    "pvalue_mantissa": 1,
+    "pvalue_exponent": -8,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.015-0.031]",
+    "beta": "0.0231996 unit decrease",
+    "p_value": 1e-08,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0007874",
+        "efo_trait": "gut microbiome measurement"
+      }
+    ],
+    "reported_trait": [
+      "Brevibacillaceae abundance in stool"
+    ],
+    "accession_id": "GCST90032245",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "35115689",
+    "first_author": "Qin Y",
+    "ci_lower": 0.015,
+    "ci_upper": 0.031,
+    "snp_effect_allele": [
+      "rs4988235-G"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "G"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/94874855"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/94874855/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 94874563,
+    "risk_frequency": "0.414723",
+    "pvalue_description": "",
+    "pvalue_mantissa": 9,
+    "pvalue_exponent": -17,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.13-0.21]",
+    "beta": "0.166364 unit increase",
+    "p_value": 9.000000000000001e-17,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0007874",
+        "efo_trait": "gut microbiome measurement"
+      }
+    ],
+    "reported_trait": [
+      "Bifidobacterium bifidum abundance in stool"
+    ],
+    "accession_id": "GCST90032222",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "35115689",
+    "first_author": "Qin Y",
+    "ci_lower": 0.13,
+    "ci_upper": 0.21,
+    "snp_effect_allele": [
+      "rs4988235-G"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "G"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/94874563"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/94874563/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 94874254,
+    "risk_frequency": "0.414723",
+    "pvalue_description": "",
+    "pvalue_mantissa": 2,
+    "pvalue_exponent": -8,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.0065-0.0135]",
+    "beta": "0.0100068 unit decrease",
+    "p_value": 2e-08,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0007874",
+        "efo_trait": "gut microbiome measurement"
+      }
+    ],
+    "reported_trait": [
+      "Bacilli A abundance in stool"
+    ],
+    "accession_id": "GCST90032200",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "35115689",
+    "first_author": "Qin Y",
+    "ci_lower": 0.0065,
+    "ci_upper": 0.0135,
+    "snp_effect_allele": [
+      "rs4988235-G"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "G"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/94874254"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/94874254/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 80618813,
+    "risk_frequency": "NR",
+    "pvalue_description": "",
+    "pvalue_mantissa": 1,
+    "pvalue_exponent": -13,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "-",
+    "beta": "7.4256573 z score increase",
+    "p_value": 1e-13,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0007874",
+        "efo_trait": "gut microbiome measurement"
+      }
+    ],
+    "reported_trait": [
+      "Gut microbiota abundance (phylum Actinobacteria id.400)"
+    ],
+    "accession_id": "GCST90017110",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "33462485",
+    "first_author": "Kurilshikov A",
+    "snp_effect_allele": [
+      "rs4988235-G"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "G"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/80618813"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/80618813/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 75061866,
+    "risk_frequency": "0.508",
+    "pvalue_description": "",
+    "pvalue_mantissa": 2,
+    "pvalue_exponent": -13,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "-",
+    "beta": "-",
+    "p_value": 2e-13,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0007800",
+        "efo_trait": "body fat percentage"
+      },
+      {
+        "efo_id": "EFO_0004611",
+        "efo_trait": "low density lipoprotein cholesterol measurement"
+      }
+    ],
+    "reported_trait": [
+      "Body fat percentage and LDL-C (pairwise)"
+    ],
+    "accession_id": "GCST011343",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "33619380",
+    "first_author": "Huang LO",
+    "snp_effect_allele": [
+      "rs4988235-A"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "A"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/75061866"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/75061866/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 73197532,
+    "risk_frequency": "0.508",
+    "pvalue_description": "",
+    "pvalue_mantissa": 2,
+    "pvalue_exponent": -12,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "-",
+    "beta": "-",
+    "p_value": 2e-12,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0004340",
+        "efo_trait": "body mass index"
+      },
+      {
+        "efo_id": "EFO_0004611",
+        "efo_trait": "low density lipoprotein cholesterol measurement"
+      }
+    ],
+    "reported_trait": [
+      "Body mass index and LDL-C (pairwise)"
+    ],
+    "accession_id": "GCST011335",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "33619380",
+    "first_author": "Huang LO",
+    "snp_effect_allele": [
+      "rs4988235-A"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "A"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/73197532"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/73197532/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 63147864,
+    "risk_frequency": "0.14765625",
+    "pvalue_description": "",
+    "pvalue_mantissa": 5,
+    "pvalue_exponent": -210,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.91-1.02]",
+    "beta": "0.9628598 unit decrease",
+    "p_value": 5e-210,
+    "efo_traits": [
+      {
+        "efo_id": "OBA_VT0005416",
+        "efo_trait": "blood protein amount"
+      }
+    ],
+    "reported_trait": [
+      "Blood protein levels"
+    ],
+    "accession_id": "GCST006585",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "30072576",
+    "first_author": "Emilsson V",
+    "ci_lower": 0.91,
+    "ci_upper": 1.02,
+    "snp_effect_allele": [
+      "rs4988235-G"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "G"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/63147864"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/63147864/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 62223757,
+    "risk_frequency": "0.651664504477521",
+    "pvalue_description": "",
+    "pvalue_mantissa": 1,
+    "pvalue_exponent": -6,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.076-0.18]",
+    "beta": "0.127941 unit decrease",
+    "p_value": 1e-06,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0007874",
+        "efo_trait": "gut microbiome measurement"
+      }
+    ],
+    "reported_trait": [
+      "Gut microbiota (bacterial taxa, rank normal transformation method)"
+    ],
+    "accession_id": "GCST010397",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "32572223",
+    "first_author": "Hughes DA",
+    "ci_lower": 0.076,
+    "ci_upper": 0.18,
+    "snp_effect_allele": [
+      "rs4988235-A"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "A"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/62223757"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/62223757/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 35038025,
+    "risk_frequency": "NR",
+    "pvalue_description": "",
+    "pvalue_mantissa": 5,
+    "pvalue_exponent": -9,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[NR]",
+    "beta": "0.016 unit decrease",
+    "p_value": 5e-09,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0004340",
+        "efo_trait": "body mass index"
+      }
+    ],
+    "reported_trait": [
+      "Body mass index"
+    ],
+    "accession_id": "GCST006368",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "30108127",
+    "first_author": "Hoffmann TJ",
+    "snp_effect_allele": [
+      "rs4988235-G"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "G"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/35038025"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/35038025/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 30524071,
+    "risk_frequency": "0.665850251591651",
+    "pvalue_description": "",
+    "pvalue_mantissa": 1,
+    "pvalue_exponent": -9,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "-",
+    "beta": "0.0183999 unit increase",
+    "p_value": 1e-09,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0004340",
+        "efo_trait": "body mass index"
+      }
+    ],
+    "reported_trait": [
+      "Body mass index"
+    ],
+    "accession_id": "GCST005951",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "26426971",
+    "first_author": "Winkler TW",
+    "snp_effect_allele": [
+      "rs4988235-A"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "A"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/30524071"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/30524071/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 19283800,
+    "risk_frequency": "0.6486",
+    "pvalue_description": "",
+    "pvalue_mantissa": 2,
+    "pvalue_exponent": -8,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.014-0.029]",
+    "beta": "0.0217 unit increase",
+    "p_value": 2e-08,
+    "efo_traits": [
+      {
+        "efo_id": "OBA_1000032",
+        "efo_trait": "hip circumference"
+      }
+    ],
+    "reported_trait": [
+      "Hip circumference"
+    ],
+    "accession_id": "GCST004066",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "25673412",
+    "first_author": "Shungin D",
+    "ci_lower": 0.014,
+    "ci_upper": 0.029,
+    "snp_effect_allele": [
+      "rs4988235-A"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "A"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/19283800"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/19283800/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 12223470,
+    "risk_frequency": "0.646",
+    "pvalue_description": "",
+    "pvalue_mantissa": 2,
+    "pvalue_exponent": -6,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.0094-0.0224]",
+    "beta": "0.016 kg/m2 increase",
+    "p_value": 2e-06,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0004340",
+        "efo_trait": "body mass index"
+      }
+    ],
+    "reported_trait": [
+      "Body mass index"
+    ],
+    "accession_id": "GCST002783",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "25673413",
+    "first_author": "Locke AE",
+    "ci_lower": 0.0094,
+    "ci_upper": 0.0224,
+    "snp_effect_allele": [
+      "rs4988235-A"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "A"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/12223470"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/12223470/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  },
+  {
+    "association_id": 12223242,
+    "risk_frequency": "0.66",
+    "pvalue_description": "",
+    "pvalue_mantissa": 5,
+    "pvalue_exponent": -6,
+    "multi_snp_haplotype": false,
+    "snp_interaction": false,
+    "range": "[0.0091-0.0225]",
+    "beta": "0.016 kg/m2 increase",
+    "p_value": 4.9999999999999996e-06,
+    "efo_traits": [
+      {
+        "efo_id": "EFO_0004340",
+        "efo_trait": "body mass index"
+      }
+    ],
+    "reported_trait": [
+      "Body mass index"
+    ],
+    "accession_id": "GCST002783",
+    "locations": [
+      "2:135851076"
+    ],
+    "mapped_genes": [
+      "MCM6"
+    ],
+    "bg_efo_traits": [],
+    "pubmed_id": "25673413",
+    "first_author": "Locke AE",
+    "ci_lower": 0.0091,
+    "ci_upper": 0.0225,
+    "snp_effect_allele": [
+      "rs4988235-A"
+    ],
+    "snp_allele": [
+      {
+        "rs_id": "rs4988235",
+        "effect_allele": "A"
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/12223242"
+      },
+      "loci": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/associations/12223242/loci"
+      },
+      "snp": {
+        "href": "https://www.ebi.ac.uk/gwas/rest/api/v2/single-nucleotide-polymorphisms/rs4988235"
+      }
+    }
+  }
+]

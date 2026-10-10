@@ -13,7 +13,7 @@ class GWASCatalogConnector(SourceConnector):
     async def metadata(self) -> dict[str, Any]:
         return (await self.http.get("/metadata")).json()
     async def discover_traits(self, query: str) -> list[dict[str, Any]]:
-        r = await self.http.get("/efo_traits", params={"search": query})
+        r = await self.http.get("/efo-traits", params={"efo_trait": query})
         payload = r.json()
         if isinstance(payload, list): return payload
         if isinstance(payload, dict):
@@ -25,8 +25,20 @@ class GWASCatalogConnector(SourceConnector):
                     if isinstance(value, list): return value
         return []
     async def iter_associations_for_trait(self, efo_id: str, show_child_traits: bool = True, page_size: int = 100) -> AsyncIterator[dict[str, Any]]:
+        params = {
+            "efo_trait": efo_id,
+            "show_child_traits": str(show_child_traits).lower(),
+            "size": page_size,
+        }
+        async for record in self._iter_associations(params):
+            yield record
+
+    async def iter_associations_for_variant(self, rsid: str, page_size: int = 100) -> AsyncIterator[dict[str, Any]]:
+        async for record in self._iter_associations({"rs_id": rsid, "size": page_size}):
+            yield record
+
+    async def _iter_associations(self, params: dict[str, Any]) -> AsyncIterator[dict[str, Any]]:
         path = "/associations"
-        params = {"efo_trait": efo_id, "show_child_traits": str(show_child_traits).lower(), "size": page_size}
         while path:
             payload = (await self.http.get(path, params=params)).json(); params = None
             records = []

@@ -1,8 +1,8 @@
 # Genomic Data Integration Platform
 
-Portfolio-grade data engineering and data architecture for ingesting heterogeneous public genomics and phenotype-association data, preserving raw provenance, normalizing it into a canonical model, validating quality, and exposing curated data over SQL, REST, GraphQL, and SOAP.
+Data engineering and data architecture for ingesting heterogeneous public genomics and phenotype-association data, preserving raw provenance, normalizing it into a canonical model, validating quality, and exposing curated data over SQL, REST, GraphQL, and SOAP.
 
-The first vertical slice is **human eye color / iris pigmentation**. Later phenotypes (freckles, skin pigmentation, hair color, etc.) can reuse the same platform.
+The first vertical slice is **lactose intolerance**. Later phenotypes can reuse this same platform.
 
 ## Architecture
 
@@ -28,7 +28,7 @@ Public sources
 - **EFO / GWAS ontology mappings**: controlled trait normalization.
 - **Open Targets**: optional integrated cross-check/enrichment source, never a replacement for original provenance.
 
-Restricted individual-level cohorts are intentionally not assumed to be public. They can be added later as separate licensed connectors.
+Restricted individual-level cohorts are intentionally not assumed to be public. They can optionally be added later as separate licensed connectors.
 
 ## API strategy
 
@@ -51,19 +51,10 @@ All API protocols use one shared service layer.
 
 Key rule: **biological entities are not source records**. Multiple upstream records can support the same canonical entity or association.
 
-## Eye-color milestone
 
-1. Discover relevant GWAS Catalog ontology traits for eye color / iris pigmentation.
-2. Human-review and approve the ontology IDs.
-3. Ingest associations + study metadata.
-4. Preserve raw responses.
-5. Collect rsIDs and enrich with Ensembl and NCBI.
-6. Normalize traits, variants, studies and populations.
-7. Upsert canonical associations with provenance.
-8. Expose REST + GraphQL + SOAP interfaces.
-9. Let the separate Phenotype-to-Genotype notebooks consume the curated API/database.
+## Development
 
-## Quick start
+### Example CLI Usage
 
 ```bash
 cp .env.example .env
@@ -74,7 +65,7 @@ pip install -e ".[dev,data]"
 docker compose up -d db
 python -m genomic_platform.cli init-db
 python -m genomic_platform.cli seed
-python -m genomic_platform.cli discover-eye-color-traits
+python -m genomic_platform.cli discover-traits "eye color" "iris pigmentation"
 uvicorn genomic_platform.api.main:app --reload
 ```
 
@@ -82,7 +73,7 @@ REST docs: `http://localhost:8000/docs`
 GraphQL: `http://localhost:8000/graphql`  
 SOAP WSDL after running the SOAP server: `http://localhost:8001/?wsdl`
 
-## Project layout
+### Project layout
 
 ```text
 src/genomic_platform/
@@ -101,28 +92,3 @@ tests/
 data/raw/
 data/quarantine/
 ```
-
-## Design rules
-
-1. Preserve raw source data.
-2. Never silently drop provenance.
-3. Use platform-owned canonical IDs; external IDs are identifiers/aliases.
-4. Prefer GRCh38 for the first curated coordinate while preserving source mappings.
-5. Keep original source phenotype text alongside normalized ontology concepts.
-6. Make ingestion idempotent.
-7. Quarantine malformed records rather than silently discarding them.
-8. Record release/run lineage for curated facts.
-9. Keep protocol adapters thin.
-10. Do not let the research notebooks become the ETL pipeline.
-
-## Recommended build order
-
-1. Run trait discovery and capture real GWAS v2 payloads.
-2. Add contract fixtures/tests for the exact returned response shape.
-3. Approve the eye-color ontology IDs.
-4. Finish GWAS association/study upserts.
-5. Enrich rsIDs through Ensembl.
-6. Finish the NCBI Variation endpoint mapping you choose to standardize on.
-7. Add bulk-release ingestion for reproducible snapshots.
-8. Add dbt and/or Dagster only after the local pipeline is correct.
-9. Connect the Phenotype-to-Genotype project after the curated contract stabilizes.

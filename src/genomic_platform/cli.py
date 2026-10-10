@@ -1,7 +1,7 @@
 import asyncio, json, typer
 from genomic_platform.db import Base, engine, SessionLocal
 from genomic_platform.domain.models import SourceSystem
-from genomic_platform.etl.pipelines import discover_eye_color_traits, ingest_gwas_eye_color
+from genomic_platform.etl.pipelines import discover_associations_by_trait, discover_associations_by_variant, discover_traits, ingest_gwas_eye_color
 app=typer.Typer(no_args_is_help=True)
 
 @app.command("init-db")
@@ -17,8 +17,17 @@ def seed():
         s.commit()
     typer.echo("Seeded source systems.")
 
-@app.command("discover-eye-color-traits")
-def discover(): typer.echo(json.dumps(asyncio.run(discover_eye_color_traits()),indent=2,default=str))
+@app.command("discover-traits")
+def discover(search_terms: list[str]=typer.Argument(...,help="One or more trait queries, e.g. \"lactase persistence\".")):
+    typer.echo(json.dumps(asyncio.run(discover_traits(search_terms)),indent=2,default=str))
+
+@app.command("discover-associations-by-trait")
+def discover_associations_trait(efo_id: str=typer.Argument(...,help="EFO trait ID to query.")):
+    typer.echo(json.dumps(asyncio.run(discover_associations_by_trait(efo_id)),indent=2,default=str))
+
+@app.command("discover-associations-by-variant")
+def discover_associations_variant(rsid: str=typer.Argument(...,help="Variant rsID to query.")):
+    typer.echo(json.dumps(asyncio.run(discover_associations_by_variant(rsid)),indent=2,default=str))
 
 @app.command("ingest-gwas-eye-color")
 def ingest(execute: bool=typer.Option(False,"--execute")):
