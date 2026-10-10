@@ -73,6 +73,40 @@ REST docs: `http://localhost:8000/docs`
 GraphQL: `http://localhost:8000/graphql`  
 SOAP WSDL after running the SOAP server: `http://localhost:8001/?wsdl`
 
+### Database migrations and persistence
+
+`init-db` and `seed` apply Alembic migrations instead of unmanaged `create_all`.
+For an empty database, run `python -m alembic upgrade head`. Existing starter
+databases must be verified against revision `0001` before `alembic stamp 0001`
+and upgrade; do not blindly stamp an unknown schema.
+
+Checkpoint 2 provides a transactional Python loading service, raw/run lineage,
+persisted quality findings, and database quarantine. It does not yet wire the
+source-discovery CLI into loading or implement replay. See
+[the persistence policy](docs/data-model.md#postgresql-persistence-checkpoint-2).
+
+### Reproducible PostgreSQL integration tests (PowerShell)
+
+The dedicated test database is separate from the development database and binds
+only to localhost. Tests create and remove their own isolated schemas. They
+require a database named `genomics_test`; they never reset the development schema.
+
+```powershell
+docker compose -p genomic-etl-checkpoint2 -f docker-compose.test.yml up -d --wait db-test
+$env:GENOMIC_TEST_DATABASE_URL = "postgresql+psycopg://genomics_test:local_test_only@127.0.0.1:55432/genomics_test"
+& .\.venv\Scripts\python.exe -m pytest -q
+```
+
+Set `GENOMIC_TEST_PORT` before starting Compose if port 55432 is occupied, and
+adjust the test URL accordingly. Without `GENOMIC_TEST_DATABASE_URL`, PostgreSQL
+tests explicitly skip; that is not verification of persistence.
+
+Stop only this dedicated test stack when finished:
+
+```powershell
+docker compose -p genomic-etl-checkpoint2 -f docker-compose.test.yml down
+```
+
 ### Project layout
 
 ```text

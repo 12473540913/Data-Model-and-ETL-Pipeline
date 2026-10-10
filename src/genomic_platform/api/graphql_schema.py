@@ -1,12 +1,14 @@
 import strawberry
 from strawberry.fastapi import GraphQLRouter
+
 from genomic_platform.db import SessionLocal
 from genomic_platform.repositories.catalog import CatalogRepository
 from genomic_platform.services.catalog import CatalogService
 
+
 @strawberry.type
 class VariantType:
-    rsid: str | None; assembly: str; chromosome: str | None; position: int | None; reference_allele: str | None; alternate_alleles: list[str]
+    rsid: str | None; assembly: str | None; chromosome: str | None; position: int | None; reference_allele: str | None; alternate_alleles: list[str]
 
 @strawberry.type
 class AssociationType:

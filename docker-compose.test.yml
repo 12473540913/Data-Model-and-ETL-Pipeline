@@ -1,0 +1,14 @@
+services:
+  db-test:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: genomics_test
+      POSTGRES_USER: genomics_test
+      POSTGRES_PASSWORD: local_test_only
+    ports:
+      - "127.0.0.1:${GENOMIC_TEST_PORT:-55432}:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U genomics_test -d genomics_test"]
+      interval: 2s
+      timeout: 3s
+      retries: 30

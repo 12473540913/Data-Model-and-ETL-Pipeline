@@ -1,15 +1,26 @@
-import asyncio, json, typer
-from genomic_platform.db import Base, engine, SessionLocal
+import asyncio
+import json
+
+import typer
+
+from genomic_platform.db import SessionLocal
 from genomic_platform.domain.models import SourceSystem
-from genomic_platform.etl.pipelines import discover_associations_by_trait, discover_associations_by_variant, discover_traits, ingest_gwas_eye_color
+from genomic_platform.etl.pipelines import (
+    discover_associations_by_trait,
+    discover_associations_by_variant,
+    discover_traits,
+    ingest_gwas_eye_color,
+)
+from genomic_platform.schema_migrations import upgrade_database
+
 app=typer.Typer(no_args_is_help=True)
 
 @app.command("init-db")
-def init_db(): Base.metadata.create_all(engine); typer.echo("Database schema created.")
+def init_db(): upgrade_database(); typer.echo("Database migrations applied.")
 
 @app.command()
 def seed():
-    Base.metadata.create_all(engine)
+    upgrade_database()
     rows=[("GWAS_CATALOG","NHGRI-EBI GWAS Catalog","https://www.ebi.ac.uk/gwas/"),("ENSEMBL","Ensembl","https://www.ensembl.org/"),("NCBI_DBSNP","NCBI dbSNP / Variation","https://www.ncbi.nlm.nih.gov/snp/"),("EFO","Experimental Factor Ontology","https://www.ebi.ac.uk/efo/"),("OPEN_TARGETS","Open Targets","https://platform.opentargets.org/")]
     with SessionLocal() as s:
         for code,name,url in rows:

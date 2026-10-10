@@ -37,6 +37,7 @@ where = ["src"]
 [tool.pytest.ini_options]
 pythonpath = ["src"]
 testpaths = ["tests"]
+markers = ["integration: requires a dedicated PostgreSQL test database"]
 
 [tool.ruff]
 line-length = 100
