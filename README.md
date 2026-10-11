@@ -3,6 +3,9 @@
 Data engineering and data architecture for ingesting heterogeneous public genomics and phenotype-association data, preserving raw provenance, normalizing it into a canonical model, validating quality, and exposing curated data over SQL, REST, GraphQL, and SOAP.
 
 The first vertical slice is **lactose intolerance**. Later phenotypes can reuse this same platform.
+The verified implementation is trait-agnostic GWAS ingestion with optional
+Ensembl enrichment. NCBI and Open Targets below are future architectural roles,
+not completed ingestion integrations.
 
 ## Architecture
 
@@ -57,6 +60,8 @@ Key rule: **biological entities are not source records**. Multiple upstream reco
 The complete REST/GraphQL/SOAP application is verified on **Python 3.11**.
 See [API operations and reproducible runtime setup](docs/api.md) for the shared
 read-only query layer, safe scientific evidence queries, Docker and CI.
+See [pre-deployment preparation](docs/deployment.md) for health probes, separate
+database roles, secrets, and the clean-container verification procedure.
 
 ### Example CLI Usage
 
@@ -97,15 +102,15 @@ are never CLI arguments or displayed in ingestion failures.
 
 ```powershell
 # Live acquisition: returned associations retain their individual traits.
-& .\.venv\Scripts\python.exe -m genomic_platform.cli ingest-gwas-trait EFO_0010507 --batch-size 500
-& .\.venv\Scripts\python.exe -m genomic_platform.cli ingest-gwas-variant rs4988235 --page-size 100 --timeout 30
+& .\.venv311\Scripts\python.exe -m genomic_platform.cli ingest-gwas-trait EFO_0010507 --batch-size 500
+& .\.venv311\Scripts\python.exe -m genomic_platform.cli ingest-gwas-variant rs4988235 --page-size 100 --timeout 30
 
 # Saved JSON: no network needed.
-& .\.venv\Scripts\python.exe -m genomic_platform.cli ingest-gwas-file .\case-studies\rs4988235-associations.json --batch-size 500
+& .\.venv311\Scripts\python.exe -m genomic_platform.cli ingest-gwas-file .\case-studies\rs4988235-associations.json --batch-size 500
 
 # Substitute UUIDs from the JSON run summaries.
-& .\.venv\Scripts\python.exe -m genomic_platform.cli replay-gwas <original-run-uuid> --batch-size 500
-& .\.venv\Scripts\python.exe -m genomic_platform.cli resume-gwas <failed-or-interrupted-run-uuid>
+& .\.venv311\Scripts\python.exe -m genomic_platform.cli replay-gwas <original-run-uuid> --batch-size 500
+& .\.venv311\Scripts\python.exe -m genomic_platform.cli resume-gwas <failed-or-interrupted-run-uuid>
 ```
 
 Every command prints JSON with run/origin identifiers, status, captured/processed,
@@ -139,10 +144,10 @@ After applying migrations, enrich existing canonical variants without fetching
 GWAS again:
 
 ```powershell
-& .\.venv\Scripts\python.exe -m genomic_platform.cli enrich-variant rs4988235
-& .\.venv\Scripts\python.exe -m genomic_platform.cli enrich-variant rs4988235 --assembly GRCh37
-& .\.venv\Scripts\python.exe -m genomic_platform.cli enrich-variants --limit 100 --requests-per-second 5 --timeout 30
-& .\.venv\Scripts\python.exe -m genomic_platform.cli enrich-variants --limit 100 --refresh
+& .\.venv311\Scripts\python.exe -m genomic_platform.cli enrich-variant rs4988235
+& .\.venv311\Scripts\python.exe -m genomic_platform.cli enrich-variant rs4988235 --assembly GRCh37
+& .\.venv311\Scripts\python.exe -m genomic_platform.cli enrich-variants --limit 100 --requests-per-second 5 --timeout 30
+& .\.venv311\Scripts\python.exe -m genomic_platform.cli enrich-variants --limit 100 --refresh
 ```
 
 GRCh38 is the default target; GRCh37 uses its separate Ensembl endpoint. The

@@ -739,3 +739,38 @@ def test_openapi_is_typed_and_read_only(api_clients):
         if path != "/v1/health":
             assert methods["get"]["responses"]["200"]["content"]["application/json"]["schema"]
             assert "503" in methods["get"]["responses"]
+
+
+def test_liveness_and_database_readiness(api_clients):
+    rest, _ = api_clients
+    assert rest.get("/v1/health").json() == {"status": "ok"}
+    response = rest.get("/v1/ready")
+    assert response.status_code == 200 and response.json() == {"status": "ready"}
+
+
+def test_readiness_failure_is_sanitized_and_liveness_independent(api_clients, postgres_engine):
+    rest, _ = api_clients
+
+    def fail(connection, cursor, statement, parameters, context, executemany):
+        raise OperationalError("private SQL", {}, Exception("private database credential"))
+
+    event.listen(postgres_engine, "before_cursor_execute", fail)
+    try:
+        response = rest.get("/v1/ready")
+        assert response.status_code == 503
+        assert response.json() == {
+            "error": {"code": "DATABASE_UNAVAILABLE", "message": "Database query unavailable."}
+        }
+        assert rest.get("/v1/health").status_code == 200
+    finally:
+        event.remove(postgres_engine, "before_cursor_execute", fail)
+
+
+def test_readiness_rejects_unmigrated_database(api_clients, postgres_engine):
+    rest, _ = api_clients
+    with Session(postgres_engine) as session, session.begin():
+        session.execute(text("ALTER TABLE association RENAME TO unavailable_association"))
+    response = rest.get("/v1/ready")
+    assert response.status_code == 503
+    assert "association" not in response.text
+    assert rest.get("/v1/health").status_code == 200

@@ -1,2 +1,0 @@
-[console_scripts]
-genomic-platform = genomic_platform.cli:app

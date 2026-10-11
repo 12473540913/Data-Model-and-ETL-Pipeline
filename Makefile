@@ -1,14 +1,15 @@
 install:
-	pip install -e ".[dev,data,orchestration]"
+	python -m pip install -r requirements.lock
+	python -m pip install --no-deps -e .
 
 db:
 	docker compose up -d db
 
 test:
-	pytest -q
+	python -m pytest -q
 
 lint:
-	ruff check src tests
+	python -m ruff check src tests migrations
 
 api:
 	uvicorn genomic_platform.api.main:app --reload --port 8000

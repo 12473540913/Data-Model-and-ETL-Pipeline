@@ -7,7 +7,12 @@ from sqlalchemy.engine import Connection
 
 def migration_config() -> Config:
     root = Path(__file__).resolve().parents[2]
-    return Config(str(root / "alembic.ini"))
+    path = root / "alembic.ini"
+    if not path.is_file():
+        path = Path.cwd() / "alembic.ini"
+    if not path.is_file():
+        raise FileNotFoundError("Run migrations from a directory containing alembic.ini.")
+    return Config(str(path))
 
 
 def upgrade_database(connection: Connection | None = None) -> None:

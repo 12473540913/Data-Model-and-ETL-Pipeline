@@ -8,6 +8,8 @@ transaction-read-only with a five-second PostgreSQL statement timeout.
 ## Runtime and startup
 
 The verified application runtime is **Python 3.11** (local verification: 3.11.9).
+For checkpoint 5.5 health checks, role provisioning, clean-image verification and
+current CI status, see [deployment preparation](deployment.md).
 Released Spyne 2.14.0 imports and generates WSDL on this runtime; its bundled
 import compatibility code fails on the previous Python 3.14 environment.
 No installed package is patched and no upstream development revision is used.

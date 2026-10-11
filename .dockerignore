@@ -1,7 +1,15 @@
 .git
 .env
+.env.*
+!.env.example
 .venv
 .venv311
+.venv*
+**/*.egg-info
+build
+dist
+**/*.py[cod]
+**/*.log
 __pycache__
 .pytest_cache
 .ruff_cache

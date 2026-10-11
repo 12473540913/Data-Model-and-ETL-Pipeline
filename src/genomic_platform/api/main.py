@@ -7,6 +7,7 @@ from fastapi.responses import JSONResponse
 from sqlalchemy.exc import SQLAlchemyError
 from starlette.exceptions import HTTPException
 
+from genomic_platform import __version__
 from genomic_platform.api.graphql_schema import graphql_router
 from genomic_platform.api.limits import RequestLimits
 from genomic_platform.api.rest import router as rest_router
@@ -23,7 +24,7 @@ STATUS_CODES = {
 }
 app = FastAPI(
     title="Genomic Data Integration Platform",
-    version="0.2.0",
+    version=__version__,
     description="Read-only canonical data and bounded scientific evidence queries.",
 )
 

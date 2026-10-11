@@ -1,4 +1,5 @@
 from datetime import datetime
+from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, field_serializer
 
@@ -18,6 +19,10 @@ class ErrorDetail(BaseModel):
 
 class ErrorResponse(BaseModel):
     error: ErrorDetail
+
+
+class HealthResponse(BaseModel):
+    status: Literal["ok", "ready"]
 
 
 class TraitView(View):

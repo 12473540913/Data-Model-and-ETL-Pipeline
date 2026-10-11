@@ -2,9 +2,11 @@ import re
 from typing import Annotated
 
 from fastapi import APIRouter, Depends, Query
+from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from genomic_platform.api.deps import build_catalog_service, get_session
+from genomic_platform.domain.models import Association
 from genomic_platform.services import contracts as c
 
 router = APIRouter(
@@ -20,9 +22,17 @@ Limit = Annotated[int, Query(ge=1, le=100)]
 Offset = Annotated[int, Query(ge=0, le=10000)]
 
 
-@router.get("/health")
+@router.get("/health", response_model=c.HealthResponse, tags=["Health"])
 def health():
+    """Liveness only: does not depend on database availability."""
     return {"status": "ok"}
+
+
+@router.get("/ready", response_model=c.HealthResponse, tags=["Health"])
+def ready(session: SessionDep):
+    """Readiness: PostgreSQL connection and canonical table read access."""
+    session.execute(select(Association.id).limit(1))
+    return {"status": "ready"}
 
 
 @router.get("/variants/{rsid}", response_model=c.VariantView, tags=["Canonical"])
