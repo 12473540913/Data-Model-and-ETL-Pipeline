@@ -1,5 +1,14 @@
 # Canonical Data Model
 
+## Read-only queries (checkpoint 5)
+
+Revision `0005` adds seven query indexes without changing the 21-table model or
+scientific policies. REST, GraphQL and SOAP share one repository/service and
+typed response contracts. Canonical projection fields remain distinct from
+assembly-qualified mapping history; unreconciled numeric p-values remain null.
+Scoped raw references expose original p-value tokens and checksums, not arbitrary
+payloads or filesystem paths. See [API contracts and operations](api.md).
+
 ## Ensembl enrichment (checkpoint 4)
 
 Revision `0004` introduces three tables, reusing `source_system`, `ingestion_run`,

@@ -13,6 +13,9 @@ failure rather than an inferred assembly. Raw deduplication includes source
 record ID (NULLS NOT DISTINCT) so identical missing-result bodies for different
 lookups retain separate provenance; this requires PostgreSQL 15 or newer.
 Downgrade 0004 refuses to discard enrichment evidence.
+0005 adds seven indexes for variant/trait association pages, persisted gene
+relationships and quality/processing evidence lookups. It changes no scientific
+records or reconciliation/enrichment policies.
 
 Run python -m alembic upgrade head from the repository root.
 Do not use create_all for managed databases. Existing starter databases must be

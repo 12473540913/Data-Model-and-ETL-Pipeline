@@ -54,14 +54,19 @@ Key rule: **biological entities are not source records**. Multiple upstream reco
 
 ## Development
 
+The complete REST/GraphQL/SOAP application is verified on **Python 3.11**.
+See [API operations and reproducible runtime setup](docs/api.md) for the shared
+read-only query layer, safe scientific evidence queries, Docker and CI.
+
 ### Example CLI Usage
 
 ```bash
 cp .env.example .env
-python -m venv .venv
-# Windows: .venv\Scripts\activate
-# macOS/Linux: source .venv/bin/activate
-pip install -e ".[dev,data]"
+python3.11 -m venv .venv311
+# Windows: py -3.11 -m venv .venv311; .venv311\Scripts\activate
+# macOS/Linux: source .venv311/bin/activate
+pip install -r requirements.lock
+pip install --no-deps -e .
 docker compose up -d db
 python -m genomic_platform.cli init-db
 python -m genomic_platform.cli seed
@@ -71,7 +76,7 @@ uvicorn genomic_platform.api.main:app --reload
 
 REST docs: `http://localhost:8000/docs`  
 GraphQL: `http://localhost:8000/graphql`  
-SOAP WSDL after running the SOAP server: `http://localhost:8001/?wsdl`
+SOAP WSDL: `http://localhost:8000/soap/?wsdl` (also standalone on port 8001).
 
 ### Database migrations and persistence
 

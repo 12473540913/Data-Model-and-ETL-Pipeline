@@ -1,0 +1,30 @@
+name: Python 3.11 PostgreSQL regression
+on: [push, pull_request]
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_DB: genomics_test
+          POSTGRES_USER: genomics_test
+          POSTGRES_PASSWORD: local_test_only
+        ports: ["55432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U genomics_test -d genomics_test"
+          --health-interval 5s --health-timeout 5s --health-retries 20
+    env:
+      GENOMIC_TEST_DATABASE_URL: postgresql+psycopg://genomics_test:local_test_only@127.0.0.1:55432/genomics_test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements.lock
+      - run: python -m pip install -r requirements.lock
+      - run: python -m pip install --no-deps -e .
+      - run: python -m pip check
+      - run: python -m pytest -q
+      - run: docker build -t genomic-api:test .

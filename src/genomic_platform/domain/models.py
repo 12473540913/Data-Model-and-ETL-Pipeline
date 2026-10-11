@@ -279,6 +279,7 @@ class VariantGene(Base):
     gene_id: Mapped[UUID] = mapped_column(ForeignKey("gene.id"), primary_key=True)
     relationship_type: Mapped[str] = mapped_column(String(80), primary_key=True)
     source_system_id: Mapped[UUID | None] = mapped_column(ForeignKey("source_system.id"))
+    __table_args__ = (Index("ix_variant_gene_gene_variant", "gene_id", "variant_id"),)
 
 
 class Study(Base):
@@ -331,6 +332,8 @@ class Association(Base):
     sample_size: Mapped[int | None] = mapped_column(BigInteger)
     metadata_json: Mapped[dict] = mapped_column(JSONB, default=dict)
     __table_args__ = (
+        Index("ix_association_variant_page", "variant_id", "id"),
+        Index("ix_association_trait_page", "trait_id", "id"),
         UniqueConstraint("identity_key", name="uq_association_identity"),
         CheckConstraint(
             "p_value IS NULL OR (p_value > 0 AND p_value <= 1)", name="ck_association_p_value"
@@ -395,6 +398,9 @@ class QualityIssue(Base):
     processing_observation_id: Mapped[UUID | None] = mapped_column(PGUUID(as_uuid=True))
     enrichment_observation_id: Mapped[UUID | None] = mapped_column(PGUUID(as_uuid=True))
     __table_args__ = (
+        Index("ix_quality_issue_run_page", "ingestion_run_id", "id"),
+        Index("ix_quality_issue_processing", "processing_observation_id"),
+        Index("ix_quality_issue_enrichment", "enrichment_observation_id"),
         ForeignKeyConstraint(
             ["raw_object_id", "ingestion_run_id"],
             ["raw_object.id", "raw_object.ingestion_run_id"],
@@ -433,6 +439,7 @@ class ProcessingObservation(Base):
         DateTime(timezone=True), default=lambda: datetime.now(UTC)
     )
     __table_args__ = (
+        Index("ix_processing_association", "association_id"),
         UniqueConstraint("ingestion_run_id", "raw_object_id", name="uq_processing_run_raw"),
         UniqueConstraint("id", "ingestion_run_id", name="uq_processing_id_run"),
         CheckConstraint(

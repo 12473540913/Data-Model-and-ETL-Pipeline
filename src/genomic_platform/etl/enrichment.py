@@ -423,7 +423,7 @@ def enrich_variants(
     if engine.dialect.name != "postgresql":
         raise EnrichmentError("Enrichment requires PostgreSQL.")
     with engine.connect() as connection:
-        if connection.scalar(text("SELECT version_num FROM alembic_version")) != "0004":
+        if connection.scalar(text("SELECT version_num FROM alembic_version")) != "0005":
             raise EnrichmentError("Apply database migrations with init-db before enrichment.")
     with Session(engine) as session, session.begin():
         statement = (

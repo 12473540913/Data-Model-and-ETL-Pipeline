@@ -57,7 +57,7 @@ def validate_database(engine: Engine) -> None:
     with engine.connect() as connection:
         connection.execute(text("SELECT 1"))
         version = connection.scalar(text("SELECT version_num FROM alembic_version"))
-        if version != "0004":
+        if version != "0005":
             raise IngestionError("Apply database migrations with init-db before ingestion.")
 
 
