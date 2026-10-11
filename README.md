@@ -128,6 +128,45 @@ links, and quarantine; scientific reconciliation policies are unchanged. See
 [bounded ingestion details](docs/data-model.md#bounded-ingestion-and-replay-checkpoint-3)
 for recovery and provenance semantics.
 
+### Independent Ensembl enrichment (checkpoint 4)
+
+After applying migrations, enrich existing canonical variants without fetching
+GWAS again:
+
+```powershell
+& .\.venv\Scripts\python.exe -m genomic_platform.cli enrich-variant rs4988235
+& .\.venv\Scripts\python.exe -m genomic_platform.cli enrich-variant rs4988235 --assembly GRCh37
+& .\.venv\Scripts\python.exe -m genomic_platform.cli enrich-variants --limit 100 --requests-per-second 5 --timeout 30
+& .\.venv\Scripts\python.exe -m genomic_platform.cli enrich-variants --limit 100 --refresh
+```
+
+GRCh38 is the default target; GRCh37 uses its separate Ensembl endpoint. The
+response, not the requested endpoint, supplies each mapping's assembly. Every
+mapping is retained, including incomplete, non-chromosomal, and ambiguous entries.
+Only exactly one valid target-assembly chromosome mapping may fill missing
+canonical coordinates. Existing coordinates and annotations are never overwritten.
+The canonical coordinate is a convenient projection of historical mapping evidence.
+
+Repeated identical responses reuse evidence/mapping records while recording a
+new lookup observation and run. Changed responses retain both versions and produce
+quality findings, including representation-only differences such as synonym
+ordering; these are not scientific reconciliation claims. Different assemblies
+never share a projection. No GWAS raw
+observations, associations, lineage, or scientific p-values are modified.
+
+Selection is bounded and ordered; each variant commits atomically, so earlier
+results survive later failures. Default selection skips variants whose latest
+observation for the selected assembly is not failed (including missing and
+ambiguous results), but retries failed lookups. Use a single-rsID command or
+`--refresh` to recheck previous results.
+Large refresh jobs should use explicit rsIDs for subsequent subsets; refresh
+selects the first ordered `--limit` variants and is not a cursor-based traversal.
+HTTP retries are limited to four transient attempts with request pacing and
+`Retry-After` handling. Cooldowns exceeding 300 seconds are surfaced for later
+retry rather than bypassed. Failures exit nonzero with safe JSON run summaries.
+
+See [enrichment policy](docs/data-model.md#ensembl-enrichment-checkpoint-4).
+
 ### Reproducible PostgreSQL integration tests (PowerShell)
 
 The dedicated test database is separate from the development database and binds

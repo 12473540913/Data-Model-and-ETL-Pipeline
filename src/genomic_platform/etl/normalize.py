@@ -10,6 +10,7 @@ from genomic_platform.domain.schemas import (
     TraitDTO,
     VariantDTO,
 )
+from genomic_platform.etl.ensembl_normalization import forward_snp_alleles, normalize_ensembl
 
 
 def clean_text(value: Any) -> str | None:
@@ -39,30 +40,39 @@ def normalize_rsid(value: Any) -> str | None:
     return None
 
 
-def ensembl_to_variant(rsid: str, payload: dict) -> VariantDTO:
-    mappings = payload.get("mappings") or []
-    preferred = next(
-        (
-            m
-            for m in mappings
-            if m.get("assembly_name") == "GRCh38" and m.get("coord_system") == "chromosome"
-        ),
-        mappings[0] if mappings else {},
+def ensembl_to_variant(rsid: str, payload: dict, assembly: str = "GRCh38") -> VariantDTO:
+    canonical = normalize_rsid(rsid)
+    if canonical is None or assembly not in ("GRCh37", "GRCh38"):
+        raise ValueError("Ensembl normalization requires a valid rsID and target assembly.")
+    result = normalize_ensembl(payload, canonical, assembly)
+    preferred = (
+        result.candidates[0]
+        if len(result.candidates) == 1
+        and not any(
+            not m.valid
+            and (
+                m.assembly is None
+                or (m.assembly == assembly and m.coordinate_system == "chromosome")
+            )
+            for m in result.mappings
+        )
+        else None
     )
-    alleles = [a for a in (preferred.get("allele_string") or "").split("/") if a]
+    alleles = forward_snp_alleles(preferred) if preferred is not None else None
     return VariantDTO(
-        rsid=normalize_rsid(rsid),
-        assembly=preferred.get("assembly_name") or "GRCh38",
-        chromosome=clean_text(preferred.get("seq_region_name")),
-        position=preferred.get("start"),
+        rsid=canonical,
+        assembly=preferred.assembly if preferred else None,
+        chromosome=preferred.chromosome if preferred else None,
+        position=preferred.position if preferred else None,
         reference_allele=alleles[0] if alleles else None,
-        alternate_alleles=alleles[1:] if len(alleles) > 1 else [],
-        variant_class=clean_text(payload.get("var_class")),
-        most_severe_consequence=clean_text(payload.get("most_severe_consequence")),
+        alternate_alleles=alleles[1] if alleles else [],
+        variant_class=result.annotations.get("var_class"),
+        most_severe_consequence=result.annotations.get("most_severe_consequence"),
         metadata={
             "ensembl_evidence": payload.get("evidence") or [],
-            "ancestral_allele": preferred.get("ancestral_allele"),
-            "all_mappings": mappings,
+            "ancestral_allele": preferred.payload.get("ancestral_allele") if preferred else None,
+            "all_mappings": payload.get("mappings", []),
+            "enrichment_findings": result.findings,
         },
     )
 

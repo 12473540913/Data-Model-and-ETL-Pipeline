@@ -6,6 +6,13 @@ supplied through Alembic Config.attributes["connection"] for isolated tests.
 database-backed raw/normalized snapshots and quarantine dispositions.
 0003 separates acquisition from replay processing, adds bounded batch history,
 and records request metadata and originating run references.
+0004 adds immutable Ensembl variant evidence, all assembly-specific mappings,
+retrieval observations, enrichment quality findings, and a foreign-key-backed
+canonical coordinate projection. Coordinates without an assembly cause upgrade
+failure rather than an inferred assembly. Raw deduplication includes source
+record ID (NULLS NOT DISTINCT) so identical missing-result bodies for different
+lookups retain separate provenance; this requires PostgreSQL 15 or newer.
+Downgrade 0004 refuses to discard enrichment evidence.
 
 Run python -m alembic upgrade head from the repository root.
 Do not use create_all for managed databases. Existing starter databases must be

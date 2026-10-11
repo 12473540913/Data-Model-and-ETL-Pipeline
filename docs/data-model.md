@@ -1,6 +1,73 @@
 # Canonical Data Model
 
-- **Variant**: canonical identity + preferred GRCh38 coordinate for milestone 1. Later add `variant_placement` for assembly-specific mappings.
+## Ensembl enrichment (checkpoint 4)
+
+Revision `0004` introduces three tables, reusing `source_system`, `ingestion_run`,
+`raw_object`, and `quality_issue`:
+
+- `variant_enrichment`: immutable evidence keyed by variant, requested assembly,
+  and response checksum plus HTTP status; links to the original raw response.
+- `variant_mapping`: one row per returned mapping, preserving its ordinal,
+  reported assembly, coordinate system, chromosome, start/end, strand, validity,
+  and complete mapping JSON. Non-object entries remain explicit source values.
+- `enrichment_observation`: one lookup outcome per run/variant, including rsID,
+  requested assembly, retrieval time, evidence link, status, applied fields,
+  reuse/change flags, and sanitized error code. Quality issues have a composite
+  observation/run foreign key.
+
+The response text and original bytes (base64) are preserved with separate SHA-256
+checksums. Evidence identity hashes HTTP status plus the original-byte checksum.
+Decimal values in mapping JSONB snapshots are exact strings; original JSON numeric
+tokens remain authoritative in raw text. Retrieval metadata records endpoint hostname and lookup path, not
+credential-bearing URLs or response headers. Byte-identical response evidence
+is reused across runs; its original raw observation is not rewritten. Subsequent
+retrieval times and outcomes belong to new observations. Change detection compares
+the latest usable observation, including reversions to a previously seen response;
+HTTP failures are not treated as reference-data changes.
+Change findings describe response representations, not a scientific
+reconciliation: JSON formatting or synonym ordering differences also retain a
+new checksummed response version. Canonical coordinates are not replaced.
+
+Every mapping is historical source evidence. A canonical variant's one location
+is only an assembly-qualified projection. GRCh38 is the default explicit target,
+GRCh37 configurable; mappings never acquire an assembly from that target. Exactly
+one valid chromosome mapping in that assembly is required. Unknown/incomplete
+potential target mappings block projection. Coordinates use positive 64-bit
+positions, explicit chromosome, start/end, and reported assembly. Existing
+nonmissing coordinates must agree before any missing component is filled.
+Ambiguity, unavailable results, malformed responses, and coordinate conflicts
+leave coordinates unchanged and persist findings.
+
+`variant.projection_mapping_id` and a composite foreign key bind the projected
+variant, assembly, chromosome, and position to one preserved mapping. A check
+constraint forbids unqualified coordinates and incomplete linked projections.
+Migration refuses existing unqualified coordinates rather than fabricating an
+assembly. Existing projected coordinates cannot be changed to another assembly
+while retaining the mapping link. An explicit scientific reconciliation workflow,
+not enrichment, is needed to replace a projection.
+
+SNP alleles may fill missing canonical values only for explicit forward strand,
+single-base A/C/G/T alleles, and a single-base location. Alleles are updated as a
+compatible pair; conflicting existing alleles are retained. Reverse-strand,
+unknown-strand, and complex alleles remain in mapping evidence, not guessed
+canonical alleles. Missing variant class/consequence remain missing; annotations
+with conflicting existing values produce findings and do not overwrite them.
+All other response annotations (clinical significance, synonyms, evidence, etc.)
+remain available in the original response without asserting new gene links.
+
+Each lookup persists evidence, mappings, projection, observation, and findings in
+one transaction under a variant row lock. Concurrent identical lookups reuse the
+same evidence. Earlier committed variants survive later failures. Runs accurately
+report execution failure versus completed-with-issues. Each new invocation has
+its own run; retry uses fresh lookups and checksum reuse, not GWAS replay/resume.
+An abruptly killed process can leave an enrichment run `running`; retrying in a
+new run is safe, but this checkpoint does not resume that original enrichment run.
+No Ensembl enrichment changes GWAS associations, raw observations, source links,
+or p-value reconciliation policies.
+
+## Canonical entities
+
+- **Variant**: canonical rsID identity and optional assembly-qualified coordinate projection. Historical Ensembl mappings are authoritative enrichment evidence, not the single projected location.
 - **VariantAlias**: rsID aliases, merged IDs, HGVS, SPDI, source-local IDs.
 - **Trait**: normalized phenotype concept; retain source-reported names in `trait_synonym` / provenance.
 - **Study**: accession/publication metadata.
@@ -8,7 +75,7 @@
 - **Association**: statistical variant-trait observation in study/population context.
 - **AssociationSource**: many-to-many provenance between canonical association and upstream source record/run.
 
-Candidate later tables: `variant_placement`, `allele_frequency`, `ontology_term`, `ontology_edge`, `study_cohort`, `measurement_definition`, `summary_statistic_file`, `gene_annotation`, `publication`, `license`.
+Candidate later tables: `allele_frequency`, `ontology_term`, `ontology_edge`, `study_cohort`, `measurement_definition`, `summary_statistic_file`, `gene_annotation`, `publication`, `license`.
 
 ## GWAS normalization (checkpoint 1)
 
@@ -50,7 +117,8 @@ silently discard the findings because the discrepancies look like float artifact
 
 ## PostgreSQL persistence (checkpoint 2)
 
-The repository has 16 ORM tables (the earlier 17-table count was inaccurate).
+The original schema had 16 ORM tables (the earlier 17-table count was inaccurate);
+checkpoint 3 added two, and checkpoint 4 adds three, for 21 managed tables.
 Alembic revision `0001` freezes the original schema; `0002` migrates p-values and
 effect sizes to unconstrained PostgreSQL `NUMERIC` and adds observation identity,
 raw snapshots, quality lineage, and integrity constraints. The migration cannot

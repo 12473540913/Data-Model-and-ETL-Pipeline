@@ -6,7 +6,7 @@ from pydantic import BaseModel, Field
 
 class VariantDTO(BaseModel):
     rsid: str | None = None
-    assembly: str = "GRCh38"
+    assembly: str | None = None
     chromosome: str | None = None
     position: int | None = None
     reference_allele: str | None = None

@@ -104,7 +104,12 @@ class RawObject(Base):
             name="uq_raw_object_association_source",
         ),
         UniqueConstraint(
-            "ingestion_run_id", "source_record_type", "sha256", name="uq_raw_object_run_payload"
+            "ingestion_run_id",
+            "source_record_type",
+            "source_record_id",
+            "sha256",
+            name="uq_raw_object_run_payload",
+            postgresql_nulls_not_distinct=True,
         ),
         CheckConstraint(
             "disposition IN ('captured', 'loaded', 'partial', 'quarantined')",
@@ -154,7 +159,108 @@ class Variant(Base):
     variant_class: Mapped[str | None] = mapped_column(String(80))
     most_severe_consequence: Mapped[str | None] = mapped_column(String(150))
     metadata_json: Mapped[dict] = mapped_column(JSONB, default=dict)
-    __table_args__ = (Index("ix_variant_locus", "assembly", "chromosome", "position"),)
+    projection_mapping_id: Mapped[UUID | None] = mapped_column(PGUUID(as_uuid=True))
+    __table_args__ = (
+        Index("ix_variant_locus", "assembly", "chromosome", "position"),
+        CheckConstraint(
+            "(chromosome IS NULL AND position IS NULL) OR assembly IS NOT NULL",
+            name="ck_variant_qualified_coordinates",
+        ),
+        CheckConstraint(
+            "projection_mapping_id IS NULL OR "
+            "(assembly IS NOT NULL AND chromosome IS NOT NULL AND position IS NOT NULL)",
+            name="ck_variant_complete_projection",
+        ),
+        ForeignKeyConstraint(
+            ["projection_mapping_id", "id", "assembly", "chromosome", "position"],
+            [
+                "variant_mapping.id",
+                "variant_mapping.variant_id",
+                "variant_mapping.assembly",
+                "variant_mapping.chromosome",
+                "variant_mapping.position",
+            ],
+            name="fk_variant_projection_mapping",
+            use_alter=True,
+        ),
+    )
+
+
+class VariantEnrichment(Base):
+    __tablename__ = "variant_enrichment"
+    id: Mapped[UUID] = mapped_column(PGUUID(as_uuid=True), primary_key=True, default=uuid4)
+    variant_id: Mapped[UUID] = mapped_column(ForeignKey("variant.id"), index=True)
+    raw_object_id: Mapped[UUID] = mapped_column(ForeignKey("raw_object.id"), unique=True)
+    requested_assembly: Mapped[str] = mapped_column(String(30))
+    sha256: Mapped[str] = mapped_column(String(64))
+    normalized_json: Mapped[dict] = mapped_column(JSONB)
+    __table_args__ = (
+        UniqueConstraint(
+            "variant_id", "requested_assembly", "sha256", name="uq_enrichment_evidence"
+        ),
+        UniqueConstraint("id", "variant_id", name="uq_enrichment_variant"),
+        CheckConstraint(
+            "requested_assembly IN ('GRCh37', 'GRCh38')", name="ck_enrichment_assembly"
+        ),
+    )
+
+
+class VariantMapping(Base):
+    __tablename__ = "variant_mapping"
+    id: Mapped[UUID] = mapped_column(PGUUID(as_uuid=True), primary_key=True, default=uuid4)
+    enrichment_id: Mapped[UUID] = mapped_column(PGUUID(as_uuid=True), index=True)
+    variant_id: Mapped[UUID] = mapped_column(ForeignKey("variant.id"))
+    ordinal: Mapped[int] = mapped_column(BigInteger)
+    assembly: Mapped[str | None] = mapped_column(Text)
+    coordinate_system: Mapped[str | None] = mapped_column(Text)
+    chromosome: Mapped[str | None] = mapped_column(Text)
+    position: Mapped[int | None] = mapped_column(BigInteger)
+    end_position: Mapped[int | None] = mapped_column(BigInteger)
+    strand: Mapped[int | None] = mapped_column(BigInteger)
+    valid: Mapped[bool] = mapped_column(Boolean)
+    payload_json: Mapped[dict] = mapped_column(JSONB)
+    __table_args__ = (
+        ForeignKeyConstraint(
+            ["enrichment_id", "variant_id"],
+            ["variant_enrichment.id", "variant_enrichment.variant_id"],
+            name="fk_mapping_enrichment_variant",
+        ),
+        UniqueConstraint("enrichment_id", "ordinal", name="uq_mapping_ordinal"),
+        UniqueConstraint(
+            "id", "variant_id", "assembly", "chromosome", "position", name="uq_mapping_projection"
+        ),
+        Index("ix_variant_mapping_assembly", "variant_id", "assembly"),
+    )
+
+
+class EnrichmentObservation(Base):
+    __tablename__ = "enrichment_observation"
+    id: Mapped[UUID] = mapped_column(PGUUID(as_uuid=True), primary_key=True, default=uuid4)
+    ingestion_run_id: Mapped[UUID] = mapped_column(ForeignKey("ingestion_run.id"), index=True)
+    variant_id: Mapped[UUID] = mapped_column(ForeignKey("variant.id"))
+    enrichment_id: Mapped[UUID | None] = mapped_column(PGUUID(as_uuid=True))
+    requested_assembly: Mapped[str] = mapped_column(String(30))
+    lookup_identifier: Mapped[str] = mapped_column(String(50))
+    retrieved_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+    status: Mapped[str] = mapped_column(String(30))
+    metadata_json: Mapped[dict] = mapped_column(JSONB)
+    __table_args__ = (
+        ForeignKeyConstraint(
+            ["enrichment_id", "variant_id"],
+            ["variant_enrichment.id", "variant_enrichment.variant_id"],
+            name="fk_observation_enrichment_variant",
+        ),
+        UniqueConstraint("ingestion_run_id", "variant_id", name="uq_enrichment_run_variant"),
+        UniqueConstraint("id", "ingestion_run_id", name="uq_enrichment_observation_run"),
+        CheckConstraint(
+            "status IN ('enriched', 'partial', 'ambiguous', 'conflict', 'not_found', 'failed')",
+            name="ck_enrichment_observation_status",
+        ),
+        CheckConstraint(
+            "requested_assembly IN ('GRCh37', 'GRCh38')", name="ck_observation_assembly"
+        ),
+        Index("ix_enrichment_selection", "variant_id", "requested_assembly", "status"),
+    )
 
 
 class VariantAlias(Base):
@@ -287,6 +393,7 @@ class QualityIssue(Base):
     details_json: Mapped[dict] = mapped_column(JSONB, default=dict)
     raw_object_id: Mapped[UUID | None] = mapped_column(PGUUID(as_uuid=True), index=True)
     processing_observation_id: Mapped[UUID | None] = mapped_column(PGUUID(as_uuid=True))
+    enrichment_observation_id: Mapped[UUID | None] = mapped_column(PGUUID(as_uuid=True))
     __table_args__ = (
         ForeignKeyConstraint(
             ["raw_object_id", "ingestion_run_id"],
@@ -302,6 +409,14 @@ class QualityIssue(Base):
         ),
         UniqueConstraint(
             "processing_observation_id", "rule_code", name="uq_quality_issue_processing_rule"
+        ),
+        ForeignKeyConstraint(
+            ["enrichment_observation_id", "ingestion_run_id"],
+            ["enrichment_observation.id", "enrichment_observation.ingestion_run_id"],
+            name="fk_quality_issue_enrichment_run",
+        ),
+        UniqueConstraint(
+            "enrichment_observation_id", "rule_code", name="uq_quality_issue_enrichment_rule"
         ),
     )
 

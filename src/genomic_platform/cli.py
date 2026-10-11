@@ -12,6 +12,7 @@ from sqlalchemy.exc import SQLAlchemyError
 from genomic_platform.config import get_settings
 from genomic_platform.db import SessionLocal
 from genomic_platform.domain.models import SourceSystem
+from genomic_platform.etl.enrichment import EnrichmentError, enrich_variants
 from genomic_platform.etl.ingestion import IngestionError, ingest_gwas, replay_gwas, resume_gwas
 from genomic_platform.etl.pipelines import (
     discover_associations_by_trait,
@@ -184,6 +185,67 @@ def resume(
 ):
     """Resume a run idempotently; committed batches are not processed twice."""
     _run_ingestion(resume_gwas, run_id=run_id)
+
+
+def _run_enrichment(**kwargs: Any) -> None:
+    db_engine = None
+    try:
+        db_engine = create_engine(
+            get_settings().database_url,
+            pool_pre_ping=True,
+            hide_parameters=True,
+            connect_args={"connect_timeout": 10},
+        )
+        typer.echo(json.dumps(enrich_variants(db_engine, **kwargs), indent=2))
+    except EnrichmentError as error:
+        if error.summary is not None:
+            typer.echo(json.dumps(error.summary, indent=2))
+        typer.echo(f"Error: {error}", err=True)
+        raise typer.Exit(1) from None
+    except (SQLAlchemyError, OSError, ValueError):
+        typer.echo(
+            "Error: Enrichment database or configuration failed. Check PostgreSQL and migrations; credentials are not displayed.",
+            err=True,
+        )
+        raise typer.Exit(1) from None
+    finally:
+        if db_engine is not None:
+            db_engine.dispose()
+
+
+@app.command("enrich-variant")
+def enrich_variant(
+    rsid: Annotated[str, typer.Argument(help="Existing canonical rsID, e.g. rs4988235.")],
+    assembly: Annotated[str, typer.Option(help="Explicit target: GRCh38 or GRCh37.")] = "GRCh38",
+    timeout: Annotated[float, typer.Option(min=0.1, max=300)] = 30,
+    requests_per_second: Annotated[float, typer.Option(min=0.1, max=15)] = 5,
+):
+    """Independently retrieve Ensembl evidence; never overwrite canonical coordinates."""
+    _run_enrichment(
+        rsid=rsid, assembly=assembly, timeout=timeout, requests_per_second=requests_per_second
+    )
+
+
+@app.command("enrich-variants")
+def enrich_selection(
+    limit: Annotated[
+        int, typer.Option(min=1, max=10000, help="Bounded number of canonical variants.")
+    ] = 100,
+    assembly: Annotated[str, typer.Option(help="Explicit target: GRCh38 or GRCh37.")] = "GRCh38",
+    timeout: Annotated[float, typer.Option(min=0.1, max=300)] = 30,
+    requests_per_second: Annotated[float, typer.Option(min=0.1, max=15)] = 5,
+    refresh: Annotated[
+        bool, typer.Option(help="Also recheck previously observed variants for reference changes.")
+    ] = False,
+):
+    """Enrich an ordered, bounded selection lacking observations for this assembly."""
+    _run_enrichment(
+        limit=limit,
+        assembly=assembly,
+        timeout=timeout,
+        requests_per_second=requests_per_second,
+        refresh=refresh,
+    )
 
 
 if __name__ == "__main__":
